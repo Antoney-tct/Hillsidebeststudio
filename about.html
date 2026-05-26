@@ -1,0 +1,162 @@
+all that we <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About — The Hillside Studio</title>
+<meta name="description" content="Meet the team behind The Hillside Studio. Learn about our story, our passion for light, and our commitment to authentic storytelling in Kenya."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../shared.css"/>
+<style>
+.mission{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;padding:6rem 3rem;max-width:1200px;margin:0 auto}
+.mission-img{width:100%;aspect-ratio:3/4;background:url('https://images.unsplash.com/photo-1552168324-d612d77725e3?w=900&q=80') center/cover;position:relative}
+.mission-img::after{content:'';position:absolute;bottom:-1.5rem;right:-1.5rem;width:60%;height:40%;background:url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&q=80') center/cover;border:4px solid var(--charcoal)}
+.mission-text h2{font-family:var(--font-serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.2;margin-bottom:1.5rem}
+.mission-text h2 em{color:var(--accent-light);font-style:italic}
+.mission-text p{font-size:.93rem;line-height:1.9;color:rgba(245,240,232,.7);margin-bottom:1.2rem}
+.values{background:var(--dark-brown);padding:6rem 3rem}
+.values-header{text-align:center;max-width:500px;margin:0 auto 4rem}
+.values-header h2{font-family:var(--font-serif);font-size:clamp(2rem,3vw,2.8rem);font-weight:300;margin-bottom:.75rem}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;max-width:1100px;margin:0 auto;background:rgba(184,147,90,.1)}
+.value-card{background:var(--dark-brown);padding:2.5rem 2rem}
+.v-num{font-family:var(--font-serif);font-size:3rem;color:rgba(184,147,90,.2);line-height:1;margin-bottom:.75rem}
+.v-title{font-family:var(--font-cond);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
+.v-desc{font-size:.88rem;line-height:1.75;color:rgba(245,240,232,.6)}
+.team{padding:6rem 3rem;max-width:1100px;margin:0 auto}
+.team-header{text-align:center;margin-bottom:4rem}
+.team-header h2{font-family:var(--font-serif);font-size:clamp(2rem,3vw,2.8rem);font-weight:300}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.team-card{text-align:center}
+.team-photo{width:100%;aspect-ratio:3/4;background-size:cover;background-position:center top;margin-bottom:1.25rem;filter:grayscale(20%);transition:filter .4s}
+.team-card:hover .team-photo{filter:grayscale(0)}
+.team-name{font-family:var(--font-serif);font-size:1.3rem;font-weight:300;margin-bottom:.25rem}
+.team-role{font-family:var(--font-cond);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.team-bio{font-size:.83rem;color:rgba(245,240,232,.5);line-height:1.65;margin-top:.75rem}
+.gear{background:var(--dark-brown);padding:5rem 3rem;text-align:center}
+.gear h2{font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.5rem);font-weight:300;margin-bottom:.75rem}
+.gear-sub{font-size:.9rem;color:rgba(245,240,232,.5);margin-bottom:3rem}
+.gear-list{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;max-width:900px;margin:0 auto}
+.gear-tag{font-family:var(--font-cond);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;border:1px solid rgba(184,147,90,.3);color:rgba(245,240,232,.6);padding:.5rem 1.2rem}
+@media(max-width:768px){
+  .mission{grid-template-columns:1fr;padding:4rem 1.5rem;gap:3rem}
+  .mission-img::after{display:none}
+  .values{padding:4rem 1.5rem}
+  .values-grid{grid-template-columns:1fr}
+  .team{padding:4rem 1.5rem}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .gear{padding:4rem 1.5rem}
+}
+@media(max-width:500px){.team-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav id="navbar" class="solid">
+  <a href="../index.html" class="nav-logo">The <span>Hillside</span> Studio</a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="about.html" class="active">About</a></li><li><a href="pricing.html">Pricing</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Book a Session</a>
+  <button class="hamburger" id="hamburger" aria-label="Open navigation menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="../index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="about.html">About</a><a href="pricing.html">Pricing</a>
+  <a href="contact.html" class="mob-cta">Book a Session</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1552168324-d612d77725e3?w=1600&q=80')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="../index.html">Home</a> › About</div>
+    <h1>About <em>Us</em></h1>
+  </div>
+</div>
+
+<section class="mission">
+  <div class="mission-img reveal"></div>
+  <div class="mission-text">
+    <p class="section-label reveal" style="text-align:left">Our Story</p>
+    <h2 class="reveal reveal-delay-1">Born from a <em>Love</em><br>of Light</h2>
+    <p class="reveal reveal-delay-2">The Hillside Studio started in 2016 with a single camera, a pickup truck, and an obsession with finding the perfect light. What began as weekend portrait sessions in the hills of Ruiru grew into one of Kenya's most sought-after photography and videography studios.</p>
+    <p class="reveal reveal-delay-2">We believe deeply that great photography is not just about technical skill — it's about building trust with the people in front of your lens, so they can be fully themselves. That philosophy runs through every project we take on.</p>
+    <p class="reveal reveal-delay-2">Today, our team covers weddings, brand campaigns, events, and cinematic films across Kenya and beyond. The hills are still our home. The light is still our obsession.</p>
+  </div>
+</section>
+
+<section class="values">
+  <div class="values-header">
+    <p class="section-label reveal">What We Stand For</p>
+    <h2 class="reveal reveal-delay-1">Our Core Values</h2>
+  </div>
+  <div class="values-grid">
+    <div class="value-card reveal"><div class="v-num">01</div><div class="v-title">Authenticity</div><p class="v-desc">We never force a moment. We wait for it, chase it, earn it. Real emotion always beats a perfect pose.</p></div>
+    <div class="value-card reveal reveal-delay-1"><div class="v-num">02</div><div class="v-title">Excellence</div><p class="v-desc">Every image is edited with care. Every frame is considered. We don't believe in "good enough."</p></div>
+    <div class="value-card reveal reveal-delay-2"><div class="v-num">03</div><div class="v-title">Relationship</div><p class="v-desc">We invest in understanding our clients long before the shoot day. Trust is the foundation of great work.</p></div>
+    <div class="value-card reveal"><div class="v-num">04</div><div class="v-title">Storytelling</div><p class="v-desc">Every project has a narrative arc. We find it, shape it, and make sure it lands.</p></div>
+    <div class="value-card reveal reveal-delay-1"><div class="v-num">05</div><div class="v-title">Integrity</div><p class="v-desc">Honest pricing. Clear communication. We deliver exactly what we promise, every single time.</p></div>
+    <div class="value-card reveal reveal-delay-2"><div class="v-num">06</div><div class="v-title">Creativity</div><p class="v-desc">We push ourselves to try new things, shoot in unexpected ways, and never repeat ourselves.</p></div>
+  </div>
+</section>
+
+<section class="team">
+  <div class="team-header">
+    <p class="section-label reveal">The People</p>
+    <h2 class="reveal reveal-delay-1">Meet the <em style="color:var(--accent-light);font-style:italic">Team</em></h2>
+  </div>
+  <div class="team-grid">
+    <div class="team-card reveal">
+      <div class="team-photo" style="background-image:url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&q=80')"></div>
+      <div class="team-name">Brian Kamau</div>
+      <div class="team-role">Lead Photographer & Founder</div>
+      <p class="team-bio">8 years behind the lens. Obsessed with light, shadow, and the decisive moment. Brian founded the studio from the boot of his car.</p>
+    </div>
+    <div class="team-card reveal reveal-delay-1">
+      <div class="team-photo" style="background-image:url('https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80')"></div>
+      <div class="team-name">Aisha Ndungu</div>
+      <div class="team-role">Lead Videographer & Editor</div>
+      <p class="team-bio">Film school graduate turned cinematic storyteller. Aisha crafts every film with the patience of a documentarian and the eye of an artist.</p>
+    </div>
+    <div class="team-card reveal reveal-delay-2">
+      <div class="team-photo" style="background-image:url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&q=80')"></div>
+      <div class="team-name">Lena Waweru</div>
+      <div class="team-role">Brand & Commercial Photographer</div>
+      <p class="team-bio">Former art director who crossed over to photography. Lena brings a designer's eye to every brand shoot she leads.</p>
+    </div>
+  </div>
+</section>
+
+<section class="gear">
+  <p class="section-label reveal">What We Shoot With</p>
+  <h2 class="reveal reveal-delay-1">Our Kit</h2>
+  <p class="gear-sub reveal reveal-delay-2">Professional grade equipment — because your memories deserve nothing less.</p>
+  <div class="gear-list reveal reveal-delay-2">
+    <span class="gear-tag">Sony A7R V</span><span class="gear-tag">Canon EOS R5</span><span class="gear-tag">DJI Mavic 3 Pro</span><span class="gear-tag">Sony FX3 Cinema</span><span class="gear-tag">Profoto B10 Lights</span><span class="gear-tag">Sigma Art Lenses</span><span class="gear-tag">DJI RS3 Pro Gimbal</span><span class="gear-tag">Atomos Shogun</span><span class="gear-tag">Sony 85mm f/1.4 GM</span><span class="gear-tag">Rode Wireless GO II</span>
+  </div>
+</section>
+
+<div style="text-align:center;padding:5rem 1.5rem">
+  <p class="section-label reveal">Work With Us</p>
+  <p class="reveal reveal-delay-1" style="font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;margin-bottom:2rem">Ready to tell your <em style="color:var(--accent-light);font-style:italic">story?</em></p>
+  <a href="contact.html" class="btn-primary reveal reveal-delay-2">Get in Touch</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">The Hillside Studio</div>
+  <div class="footer-copy">© 2025 The Hillside Studio. All rights reserved.</div>
+  <div class="footer-social"><a href="#">Instagram</a><a href="#">Behance</a><a href="#">YouTube</a></div>
+</footer>
+
+<button class="chatbot-bubble" id="chatBubble"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg><span class="notif" id="chatNotif"></span></button>
+<div class="chatbot-window" id="chatWindow">
+  <div class="chatbot-header">
+    <div class="chat-avatar">H</div>
+    <div class="chat-header-info"><div class="chat-header-name">Hilda — Studio Assistant</div><div class="chat-header-status">Online now</div></div>
+    <button class="chat-clear" id="chatClear" title="Clear History">↺</button>
+    <button class="chatbot-close" id="chatClose">✕</button>
+  </div>
+  <div class="chatbot-msgs" id="chatMsgs"><div class="msg bot">Want to know more about our team or studio? Ask me anything!</div></div>
+  <div class="chat-suggestions" id="chatSuggestions"><button class="chat-suggestion">Meet the team</button><button class="chat-suggestion">Our photography style</button><button class="chat-suggestion">Book a session</button></div>
+  <div class="chatbot-input-row"><input class="chatbot-input" id="chatInput" type="text" placeholder="Ask about the team…"/><button class="chatbot-send" id="chatSend">Send</button></div>
+</div>
+<script src="../shared.js"></script><script>initNav(true);</script>
+</body></html>

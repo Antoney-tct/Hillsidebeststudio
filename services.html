@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Services — The Hillside Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../shared.css"/>
+<style>
+.service-section{padding:6rem 3rem;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.service-section:nth-child(even){direction:rtl}
+.service-section:nth-child(even)>*{direction:ltr}
+.service-section.dark{background:var(--dark-brown);max-width:100%;padding:6rem 0}
+.service-section.dark .inner{max-width:1200px;margin:0 auto;padding:0 3rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.service-section.dark:nth-child(even) .inner{direction:rtl}
+.service-section.dark:nth-child(even) .inner>*{direction:ltr}
+.svc-img{width:100%;aspect-ratio:4/3;background-size:cover;background-position:center}
+.svc-tag{font-family:var(--font-cond);font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.svc-title{font-family:var(--font-serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.15;margin-bottom:1.2rem}
+.svc-title em{color:var(--accent-light);font-style:italic}
+.svc-body{font-size:.92rem;line-height:1.85;color:rgba(245,240,232,.7);margin-bottom:1.5rem}
+.svc-list{list-style:none;margin-bottom:2rem}
+.svc-list li{font-size:.87rem;color:rgba(245,240,232,.65);padding:.45rem 0;border-bottom:1px solid rgba(184,147,90,.1);display:flex;align-items:center;gap:.65rem}
+.svc-list li::before{content:'—';color:var(--accent);font-size:.8rem}
+.includes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5px;max-width:1200px;margin:4rem auto 0;padding:0 3rem}
+.inc-card{background:var(--dark-brown);padding:2rem}
+.inc-num{font-family:var(--font-serif);font-size:2rem;color:rgba(184,147,90,.3);margin-bottom:.75rem}
+.inc-title{font-family:var(--font-cond);font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cream);margin-bottom:.5rem}
+.inc-desc{font-size:.83rem;color:rgba(245,240,232,.5);line-height:1.65}
+.process-bar{background:var(--dark-brown);padding:5rem 3rem;margin-top:5rem}
+.process-bar h2{font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.5rem);font-weight:300;text-align:center;margin-bottom:3.5rem}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;max-width:1100px;margin:0 auto;position:relative}
+.steps::before{content:'';position:absolute;top:1.8rem;left:12.5%;right:12.5%;height:1px;background:linear-gradient(to right,transparent,var(--accent),transparent);opacity:.3}
+.step{text-align:center;padding:0 1rem}
+.step-n{width:3.6rem;height:3.6rem;border-radius:50%;border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;font-family:var(--font-serif);font-size:1.2rem;color:var(--accent-light)}
+.step h4{font-family:var(--font-cond);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cream);margin-bottom:.6rem}
+.step p{font-size:.82rem;color:rgba(245,240,232,.5);line-height:1.65}
+@media(max-width:768px){
+  .service-section{grid-template-columns:1fr;padding:4rem 1.5rem;gap:2.5rem}
+  .service-section:nth-child(even){direction:ltr}
+  .service-section.dark .inner{grid-template-columns:1fr;padding:0 1.5rem}
+  .service-section.dark:nth-child(even) .inner{direction:ltr}
+  .steps{grid-template-columns:1fr 1fr;gap:2rem}
+  .steps::before{display:none}
+  .includes-grid{padding:0 1.5rem}
+  .process-bar{padding:4rem 1.5rem}
+}
+</style>
+</head>
+<body>
+<nav id="navbar" class="solid">
+  <a href="../index.html" class="nav-logo">The <span>Hillside</span> Studio</a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Book a Session</a>
+  <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="../index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="about.html">About</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="contact.html" class="mob-cta">Book a Session</a>
+</div>
+
+<div class="page-hero" id="weddings">
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=1600&q=80')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="../index.html">Home</a> › Services</div>
+    <h1>Our <em>Services</em></h1>
+  </div>
+</div>
+
+<!-- WEDDINGS -->
+<section class="service-section">
+  <div class="svc-img reveal" style="background-image:url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=900&q=80')"></div>
+  <div>
+    <div class="svc-tag reveal">01 — Photography</div>
+    <h2 class="svc-title reveal reveal-delay-1">Wedding &amp; <em>Portrait</em><br>Photography</h2>
+    <p class="svc-body reveal reveal-delay-2">Your wedding day is the most photographed day of your life — it deserves a photographer who goes beyond the expected. We chase the real: the stolen glance, the laugh that breaks the pose, the quiet moment between the grand ones.</p>
+    <ul class="svc-list reveal reveal-delay-2">
+      <li>Full day and half day packages available</li>
+      <li>Engagement sessions and pre-wedding shoots</li>
+      <li>Family and maternity portraits</li>
+      <li>Corporate headshots and personal branding</li>
+      <li>Private online gallery delivery within 2–3 weeks</li>
+    </ul>
+    <a href="contact.html" class="btn-primary reveal reveal-delay-3">Book a Wedding Shoot</a>
+  </div>
+</section>
+
+<!-- FILMS -->
+<div class="service-section dark" id="films">
+  <div class="inner">
+    <div class="svc-img reveal" style="background-image:url('https://images.unsplash.com/photo-1579038773867-044c48829161?w=900&q=80')"></div>
+    <div>
+      <div class="svc-tag reveal">02 — Videography</div>
+      <h2 class="svc-title reveal reveal-delay-1"><em>Cinematic</em><br>Films</h2>
+      <p class="svc-body reveal reveal-delay-2">A film that makes you feel something. We approach every project with a director's eye — crafting narrative arcs, choosing music that lands, and colour grading each frame to perfection. Your story, told in motion.</p>
+      <ul class="svc-list reveal reveal-delay-2">
+        <li>Wedding highlight films (3–6 minutes)</li>
+        <li>Full ceremony and reception recordings</li>
+        <li>Brand and product video campaigns</li>
+        <li>Documentary and short film production</li>
+        <li>Drone aerial footage add-on available</li>
+      </ul>
+      <a href="contact.html" class="btn-primary reveal reveal-delay-3">Book a Film Project</a>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND -->
+<section class="service-section" id="brand">
+  <div class="svc-img reveal" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80')"></div>
+  <div>
+    <div class="svc-tag reveal">03 — Commercial</div>
+    <h2 class="svc-title reveal reveal-delay-1">Brand &amp; <em>Product</em><br>Photography</h2>
+    <p class="svc-body reveal reveal-delay-2">Brands that command attention invest in visuals that earn it. We work with you to translate your brand identity into imagery that converts — from lookbooks and product campaigns to social content and advertising.</p>
+    <ul class="svc-list reveal reveal-delay-2">
+      <li>Product and flat-lay photography</li>
+      <li>Lifestyle and campaign shoots</li>
+      <li>Lookbooks and editorial content</li>
+      <li>Social media content packages</li>
+      <li>E-commerce photography</li>
+    </ul>
+    <a href="contact.html" class="btn-primary reveal reveal-delay-3">Start a Brand Project</a>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<div class="service-section dark" id="events">
+  <div class="inner">
+    <div class="svc-img reveal" style="background-image:url('https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=900&q=80')"></div>
+    <div>
+      <div class="svc-tag reveal">04 — Events</div>
+      <h2 class="svc-title reveal reveal-delay-1">Corporate &amp; <em>Event</em><br>Coverage</h2>
+      <p class="svc-body reveal reveal-delay-2">Fast, clean, and professional. Whether it's a product launch, annual conference, gala dinner, or live activation — we cover it all and deliver edited assets on a timeline that suits your communications schedule.</p>
+      <ul class="svc-list reveal reveal-delay-2">
+        <li>Corporate conferences and summits</li>
+        <li>Product launches and activations</li>
+        <li>Gala dinners and award ceremonies</li>
+        <li>Live event videography</li>
+        <li>Same-week turnaround available</li>
+      </ul>
+      <a href="contact.html" class="btn-primary reveal reveal-delay-3">Book Event Coverage</a>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT'S INCLUDED -->
+<div style="padding:5rem 0 0;text-align:center">
+  <p class="section-label reveal">Every Package Includes</p>
+  <h2 class="reveal reveal-delay-1" style="font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.5rem);font-weight:300">The Hillside <em style="color:var(--accent-light);font-style:italic">Standard</em></h2>
+</div>
+<div class="includes-grid">
+  <div class="inc-card reveal"><div class="inc-num">01</div><div class="inc-title">Pre-shoot Consultation</div><p class="inc-desc">A discovery call to understand your vision, needs, and what success looks like for you.</p></div>
+  <div class="inc-card reveal reveal-delay-1"><div class="inc-num">02</div><div class="inc-title">Professional Editing</div><p class="inc-desc">Every image carefully retouched. Colour graded to match our signature warm, cinematic aesthetic.</p></div>
+  <div class="inc-card reveal reveal-delay-2"><div class="inc-num">03</div><div class="inc-title">Private Gallery</div><p class="inc-desc">Your images delivered in a beautifully designed private online gallery — easy to download and share.</p></div>
+  <div class="inc-card reveal reveal-delay-3"><div class="inc-num">04</div><div class="inc-title">Print-Ready Files</div><p class="inc-desc">All images exported in high resolution, ready for printing at any size without quality loss.</p></div>
+</div>
+
+<!-- PROCESS -->
+<div class="process-bar">
+  <h2 class="reveal">Our Process</h2>
+  <div class="steps">
+    <div class="step reveal"><div class="step-n">01</div><h4>Discovery</h4><p>We learn about your vision, goals, and what the project means to you.</p></div>
+    <div class="step reveal reveal-delay-1"><div class="step-n">02</div><h4>Planning</h4><p>Location scouting, creative brief, shot list, and timeline — all sorted before the day.</p></div>
+    <div class="step reveal reveal-delay-2"><div class="step-n">03</div><h4>The Shoot</h4><p>A relaxed, professional experience. You focus on being present; we focus on the art.</p></div>
+    <div class="step reveal reveal-delay-3"><div class="step-n">04</div><h4>Delivery</h4><p>Edited and delivered to your private gallery within your agreed timeline.</p></div>
+  </div>
+</div>
+
+<div style="text-align:center;padding:5rem 1.5rem">
+  <p class="section-label reveal">Ready to Begin?</p>
+  <p class="reveal reveal-delay-1" style="font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;margin-bottom:2rem">Let's talk about your <em style="color:var(--accent-light);font-style:italic">project</em></p>
+  <div class="reveal reveal-delay-2" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+    <a href="contact.html" class="btn-primary">Book a Session</a>
+    <a href="pricing.html" class="btn-outline">View Pricing</a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">The Hillside Studio</div>
+  <div class="footer-copy">© 2025 The Hillside Studio. All rights reserved.</div>
+  <div class="footer-social"><a href="#">Instagram</a><a href="#">Behance</a><a href="#">YouTube</a></div>
+</footer>
+
+<button class="chatbot-bubble" id="chatBubble" aria-label="Chat with us"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg><span class="notif" id="chatNotif"></span></button>
+<div class="chatbot-window" id="chatWindow">
+  <div class="chatbot-header">
+    <div class="chat-avatar">H</div>
+    <div class="chat-header-info"><div class="chat-header-name">Hilda — Studio Assistant</div><div class="chat-header-status">Online now</div></div>
+    <button class="chat-clear" id="chatClear" title="Clear History">↺</button>
+    <button class="chatbot-close" id="chatClose">✕</button>
+  </div>
+  <div class="chatbot-msgs" id="chatMsgs"><div class="msg bot">Hi! I can tell you more about any of our services or help you book. What are you looking for?</div></div>
+  <div class="chat-suggestions" id="chatSuggestions"><button class="chat-suggestion">Wedding photography</button><button class="chat-suggestion">Videography pricing</button><button class="chat-suggestion">Brand shoot info</button><button class="chat-suggestion">How to book</button></div>
+  <div class="chatbot-input-row"><input class="chatbot-input" id="chatInput" type="text" placeholder="Ask about our services…"/><button class="chatbot-send" id="chatSend">Send</button></div>
+</div>
+<script src="../shared.js"></script><script>initNav(true);</script>
+</body></html>
