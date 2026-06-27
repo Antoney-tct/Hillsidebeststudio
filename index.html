@@ -4,109 +4,169 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>The Hillside Studio — Photography & Videography Kenya</title>
-<meta name="description" content="The Hillside Studio offers elevated visual storytelling for brands, couples, and events. Professional photography and videography services based in Ruiru, Kenya."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="shared.css"/>
 <style>
-.hero { position:relative;height:100vh;min-height:640px;display:flex;align-items:flex-end;overflow:hidden; }
-.hero-bg { position:absolute;inset:0;background:linear-gradient(to bottom,rgba(28,26,23,0.2) 0%,rgba(28,26,23,0) 40%,rgba(28,26,23,0.88) 100%),url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1600&q=80') center/cover no-repeat;animation:heroZoom 18s ease-in-out infinite alternate; }
-@keyframes heroZoom{from{transform:scale(1.04)}to{transform:scale(1)}}
-.hero-content{position:relative;z-index:2;padding:0 3rem 5rem;max-width:700px}
-.hero-tag{font-family:var(--font-cond);font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent-light);margin-bottom:1.2rem;display:flex;align-items:center;gap:1rem}
-.hero-tag::before{content:'';display:block;width:36px;height:1px;background:var(--accent)}
-.hero h1{font-family:var(--font-serif);font-size:clamp(3rem,6vw,5.5rem);font-weight:300;line-height:1.05;margin-bottom:1.5rem}
-.hero h1 em{color:var(--accent-light);font-style:italic}
-.hero-sub{font-size:1rem;color:rgba(245,240,232,.75);max-width:400px;line-height:1.7;margin-bottom:2.5rem}
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
-.scroll-hint{position:absolute;bottom:2rem;right:3rem;display:flex;align-items:center;gap:.75rem;font-family:var(--font-cond);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,240,232,.5)}
-.scroll-line{width:1px;height:48px;background:var(--accent);animation:scrollPulse 2.2s ease-in-out infinite}
-@keyframes scrollPulse{0%,100%{opacity:1;transform:scaleY(1)}50%{opacity:.4;transform:scaleY(.5)}}
-.about-strip{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;padding:8rem 3rem;max-width:1300px;margin:0 auto}
-.about-visual{position:relative}
-.about-img-main{width:100%;aspect-ratio:3/4;background:url('https://images.unsplash.com/photo-1552168324-d612d77725e3?w=800&q=80') center/cover}
-.about-img-accent{position:absolute;bottom:-2.5rem;right:-2rem;width:55%;aspect-ratio:4/3;background:url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&q=80') center/cover;border:4px solid var(--charcoal)}
-.stat-strip{display:flex;gap:2rem;margin-top:5rem}
-.stat{text-align:center;flex:1}
-.stat-num{font-family:var(--font-serif);font-size:2.8rem;font-weight:300;color:var(--accent-light);line-height:1}
-.stat-label{font-family:var(--font-cond);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mid);margin-top:.4rem}
-.about-text h2{font-family:var(--font-serif);font-size:clamp(2rem,3.5vw,3.2rem);font-weight:300;line-height:1.2;margin-bottom:1.5rem}
-.about-text h2 em{color:var(--accent-light);font-style:italic}
-.about-text p{font-size:.95rem;line-height:1.85;color:rgba(245,240,232,.7);margin-bottom:1.2rem}
-.signature{font-family:var(--font-serif);font-size:1.6rem;font-style:italic;color:var(--accent-light);margin-top:2rem}
-.services-preview{background:var(--dark-brown);padding:7rem 3rem}
-.sp-header{text-align:center;max-width:500px;margin:0 auto 4rem}
-.sp-header h2{font-family:var(--font-serif);font-size:clamp(2rem,3vw,2.8rem);font-weight:300;line-height:1.2;margin-bottom:1rem}
-.sp-header p{font-size:.92rem;color:rgba(245,240,232,.6);line-height:1.7}
-.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5px;max-width:1200px;margin:0 auto 3rem}
-.service-card{position:relative;aspect-ratio:3/4;overflow:hidden;cursor:pointer}
-.sc-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .7s cubic-bezier(.25,.1,.25,1)}
-.service-card:hover .sc-bg{transform:scale(1.07)}
-.sc-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(28,26,23,.92) 0%,rgba(28,26,23,.1) 60%);transition:background .4s}
-.service-card:hover .sc-overlay{background:linear-gradient(to top,rgba(28,26,23,.97) 0%,rgba(28,26,23,.25) 55%)}
-.sc-content{position:absolute;bottom:0;left:0;right:0;padding:2rem}
-.sc-tag{font-family:var(--font-cond);font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem}
-.service-card h3{font-family:var(--font-serif);font-size:1.6rem;font-weight:300;line-height:1.2;margin-bottom:.75rem}
-.sc-desc{font-size:.85rem;line-height:1.65;color:rgba(245,240,232,.65);max-height:0;overflow:hidden;transition:max-height .5s,opacity .4s;opacity:0}
-.service-card:hover .sc-desc{max-height:120px;opacity:1}
-.sc-link{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-cond);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-light);text-decoration:none;margin-top:1rem;opacity:0;transform:translateY(6px);transition:opacity .4s .1s,transform .4s .1s}
-.service-card:hover .sc-link{opacity:1;transform:translateY(0)}
-.sc-link::after{content:'→'}
-.sp-footer{text-align:center}
-.portfolio-strip{padding:7rem 0}
-.ps-header{padding:0 3rem;display:flex;justify-content:space-between;align-items:flex-end;max-width:1300px;margin:0 auto 3rem}
-.ps-header h2{font-family:var(--font-serif);font-size:clamp(2rem,3vw,2.8rem);font-weight:300}
-.ps-header a{font-family:var(--font-cond);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);text-decoration:none;transition:color .3s}
-.ps-header a:hover{color:var(--accent-light)}
-.p-scroll{display:flex;gap:1.5px;overflow-x:auto;padding:0 3rem;scrollbar-width:none;scroll-snap-type:x mandatory}
-.p-scroll::-webkit-scrollbar{display:none}
-.p-item{flex:0 0 calc(33.33% - 1px);min-width:280px;aspect-ratio:4/5;overflow:hidden;scroll-snap-align:start;position:relative}
-.p-img{width:100%;height:100%;background-size:cover;background-position:center;transition:transform .6s cubic-bezier(.25,.1,.25,1)}
-.p-item:hover .p-img{transform:scale(1.05)}
-.p-cap{position:absolute;bottom:0;left:0;right:0;padding:1.5rem;background:linear-gradient(to top,rgba(28,26,23,.85),transparent);transform:translateY(8px);opacity:0;transition:opacity .35s,transform .35s}
-.p-item:hover .p-cap{opacity:1;transform:translateY(0)}
-.p-cap span{font-family:var(--font-cond);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-light)}
-.testimonials{background:var(--dark-brown);padding:7rem 3rem;position:relative;overflow:hidden}
-.testimonials::before{content:'"';position:absolute;top:-1rem;left:2rem;font-family:var(--font-serif);font-size:20rem;color:rgba(184,147,90,.06);line-height:1;pointer-events:none}
-.t-header{text-align:center;margin-bottom:4rem}
-.t-header h2{font-family:var(--font-serif);font-size:clamp(2rem,3vw,2.8rem);font-weight:300}
-.t-track{display:flex;gap:2rem;max-width:1200px;margin:0 auto}
-.t-item{flex:1;border-left:2px solid var(--accent);padding-left:2rem}
-.t-quote{font-family:var(--font-serif);font-size:1.15rem;font-style:italic;font-weight:300;line-height:1.75;color:rgba(245,240,232,.85);margin-bottom:1.5rem}
-.t-author{font-family:var(--font-cond);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
-.t-role{font-size:.8rem;color:rgba(245,240,232,.4);margin-top:.2rem}
-.cta-banner{position:relative;padding:7rem 3rem;text-align:center;overflow:hidden}
-.cta-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1500051638674-ff996a0ec29e?w=1600&q=80') center/cover;opacity:.12}
-.cta-content{position:relative;z-index:2;max-width:600px;margin:0 auto}
-.cta-content h2{font-family:var(--font-serif);font-size:clamp(2.5rem,5vw,4rem);font-weight:300;line-height:1.1;margin-bottom:1.2rem}
-.cta-content h2 em{color:var(--accent-light);font-style:italic}
-.cta-content p{font-size:.95rem;color:rgba(245,240,232,.6);margin-bottom:2.5rem;line-height:1.7}
-.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-@media(max-width:768px){
-  .about-strip{grid-template-columns:1fr;padding:5rem 1.5rem;gap:3rem}
-  .about-img-accent{right:0}
-  .services-preview{padding:5rem 1.5rem}
-  .ps-header{padding:0 1.5rem}
-  .p-scroll{padding:0 1.5rem}
-  .p-item{flex:0 0 85%}
-  .t-track{flex-direction:column}
-  .cta-banner{padding:5rem 1.5rem}
-  .hero-content{padding:0 1.5rem 4rem}
+/* ── HERO ── */
+.hero {
+  position:relative; height:100svh; min-height:600px;
+  display:flex; align-items:flex-end; overflow:hidden;
+}
+.hero-bg {
+  position:absolute; inset:0;
+  background:
+    linear-gradient(to bottom, rgba(28,26,23,0.15) 0%, rgba(28,26,23,0) 35%, rgba(28,26,23,0.92) 100%),
+    url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1600&q=80') center/cover no-repeat;
+  animation:heroZoom 20s ease-in-out infinite alternate;
+}
+@keyframes heroZoom { from{transform:scale(1.05)} to{transform:scale(1)} }
+.hero-content {
+  position:relative; z-index:2;
+  padding: 0 clamp(1.5rem,5vw,3.5rem) clamp(3.5rem,8vw,6rem);
+  max-width:720px; width:100%;
+}
+.hero-tag {
+  font-family:var(--font-cond); font-size:0.78rem;
+  letter-spacing:0.3em; text-transform:uppercase;
+  color:var(--accent-light); margin-bottom:1.25rem;
+  display:flex; align-items:center; gap:1rem;
+}
+.hero-tag::before { content:''; display:block; width:32px; height:1px; background:var(--accent); }
+.hero h1 {
+  font-family:var(--font-serif);
+  font-size:clamp(2.8rem,7vw,5.8rem);
+  font-weight:300; line-height:1.04; margin-bottom:1.4rem;
+}
+.hero h1 em { color:var(--accent-light); font-style:italic; }
+.hero-sub {
+  font-size:clamp(0.95rem,2vw,1.05rem);
+  color:rgba(245,240,232,0.72);
+  max-width:420px; line-height:1.75; margin-bottom:2.5rem;
+}
+.hero-btns { display:flex; gap:0.85rem; flex-wrap:wrap; }
+.scroll-hint {
+  position:absolute; bottom:1.75rem; right:clamp(1.5rem,4vw,3rem);
+  display:flex; align-items:center; gap:0.7rem;
+  font-family:var(--font-cond); font-size:0.68rem;
+  letter-spacing:0.22em; text-transform:uppercase;
+  color:rgba(245,240,232,0.45);
+}
+.scroll-line { width:1px; height:44px; background:var(--accent); animation:scrollPulse 2.2s ease-in-out infinite; }
+@keyframes scrollPulse { 0%,100%{opacity:1;transform:scaleY(1)} 50%{opacity:0.35;transform:scaleY(0.4)} }
+
+/* ── ABOUT STRIP ── */
+.about-strip {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:clamp(3rem,6vw,7rem); align-items:center;
+  padding:clamp(4rem,8vw,9rem) clamp(1.5rem,5vw,3.5rem);
+  max-width:1320px; margin:0 auto;
+}
+.about-visual { position:relative; }
+.about-img-main { width:100%; aspect-ratio:3/4; background:url('https://images.unsplash.com/photo-1552168324-d612d77725e3?w=800&q=80') center/cover; }
+.about-img-accent { position:absolute; bottom:-2.5rem; right:-1.75rem; width:54%; aspect-ratio:4/3; background:url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&q=80') center/cover; border:4px solid var(--charcoal); }
+.stat-strip { display:flex; gap:1.5rem; margin-top:clamp(3.5rem,6vw,5rem); }
+.stat { text-align:center; flex:1; }
+.stat-num { font-family:var(--font-serif); font-size:clamp(2rem,4vw,2.8rem); font-weight:300; color:var(--accent-light); line-height:1; }
+.stat-label { font-family:var(--font-cond); font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--mid); margin-top:0.4rem; }
+.about-text h2 { font-family:var(--font-serif); font-size:clamp(1.8rem,3.5vw,3.2rem); font-weight:300; line-height:1.18; margin-bottom:1.4rem; }
+.about-text h2 em { color:var(--accent-light); font-style:italic; }
+.about-text p { font-size:clamp(0.9rem,1.5vw,0.97rem); line-height:1.88; color:rgba(245,240,232,0.68); margin-bottom:1.2rem; }
+.signature { font-family:var(--font-serif); font-size:1.5rem; font-style:italic; color:var(--accent-light); margin-top:1.75rem; }
+
+/* ── SERVICES PREVIEW ── */
+.services-preview { background:var(--dark-brown); padding:clamp(4rem,8vw,8rem) clamp(1.5rem,5vw,3rem); }
+.sp-header { text-align:center; max-width:520px; margin:0 auto clamp(2.5rem,5vw,4rem); }
+.sp-header h2 { font-family:var(--font-serif); font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:300; line-height:1.2; margin-bottom:0.9rem; }
+.sp-header p { font-size:0.93rem; color:rgba(245,240,232,0.58); line-height:1.72; }
+.services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr)); gap:2px; max-width:1240px; margin:0 auto 2.5rem; }
+.service-card { position:relative; aspect-ratio:3/4; overflow:hidden; cursor:pointer; }
+.sc-bg { position:absolute; inset:0; background-size:cover; background-position:center; transition:transform 0.7s cubic-bezier(0.25,0.1,0.25,1); }
+.service-card:hover .sc-bg { transform:scale(1.06); }
+.sc-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(20,18,15,0.94) 0%, rgba(20,18,15,0.08) 62%); transition:background 0.4s; }
+.service-card:hover .sc-overlay { background:linear-gradient(to top, rgba(20,18,15,0.97) 0%, rgba(20,18,15,0.22) 58%); }
+.sc-content { position:absolute; bottom:0; left:0; right:0; padding:1.75rem; }
+.sc-tag { font-family:var(--font-cond); font-size:0.65rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--accent); margin-bottom:0.5rem; }
+.service-card h3 { font-family:var(--font-serif); font-size:clamp(1.3rem,2.5vw,1.6rem); font-weight:300; line-height:1.2; margin-bottom:0.65rem; }
+.sc-desc { font-size:0.84rem; line-height:1.65; color:rgba(245,240,232,0.62); max-height:0; overflow:hidden; transition:max-height 0.5s, opacity 0.4s; opacity:0; }
+.service-card:hover .sc-desc { max-height:100px; opacity:1; }
+.sc-link { display:inline-flex; align-items:center; gap:0.45rem; font-family:var(--font-cond); font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent-light); text-decoration:none; margin-top:0.85rem; opacity:0; transform:translateY(5px); transition:opacity 0.38s 0.08s, transform 0.38s 0.08s; }
+.service-card:hover .sc-link { opacity:1; transform:translateY(0); }
+.sc-link::after { content:'→'; }
+.sp-footer { text-align:center; }
+
+/* ── PORTFOLIO STRIP ── */
+.portfolio-strip { padding:clamp(4rem,8vw,8rem) 0; }
+.ps-header { padding:0 clamp(1.5rem,5vw,3rem); display:flex; justify-content:space-between; align-items:flex-end; max-width:1320px; margin:0 auto clamp(2rem,4vw,3rem); flex-wrap:wrap; gap:1rem; }
+.ps-header h2 { font-family:var(--font-serif); font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:300; }
+.ps-header a { font-family:var(--font-cond); font-size:0.8rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); text-decoration:none; transition:color 0.25s; white-space:nowrap; }
+.ps-header a:hover { color:var(--accent-light); }
+.p-scroll {
+  display:flex; gap:3px; overflow-x:auto;
+  padding:0 clamp(1.5rem,5vw,3rem) 0.5rem;
+  scrollbar-width:none; scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+}
+.p-scroll::-webkit-scrollbar { display:none; }
+.p-item { flex:0 0 clamp(78%,30vw,calc(33.33% - 2px)); min-width:240px; aspect-ratio:4/5; overflow:hidden; scroll-snap-align:start; position:relative; }
+.p-img { width:100%; height:100%; background-size:cover; background-position:center; transition:transform 0.55s cubic-bezier(0.25,0.1,0.25,1); }
+.p-item:hover .p-img { transform:scale(1.05); }
+.p-cap { position:absolute; bottom:0; left:0; right:0; padding:1.25rem; background:linear-gradient(to top,rgba(20,18,15,0.88),transparent); transform:translateY(6px); opacity:0; transition:opacity 0.3s, transform 0.3s; }
+.p-item:hover .p-cap { opacity:1; transform:translateY(0); }
+.p-cap span { font-family:var(--font-cond); font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent-light); }
+
+/* ── TESTIMONIALS ── */
+.testimonials { background:var(--dark-brown); padding:clamp(4rem,8vw,8rem) clamp(1.5rem,5vw,3rem); position:relative; overflow:hidden; }
+.testimonials::before { content:'"'; position:absolute; top:-1.5rem; left:1.5rem; font-family:var(--font-serif); font-size:clamp(10rem,20vw,18rem); color:rgba(184,147,90,0.05); line-height:1; pointer-events:none; }
+.t-header { text-align:center; margin-bottom:clamp(2.5rem,5vw,4rem); }
+.t-header h2 { font-family:var(--font-serif); font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:300; }
+.t-track { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr)); gap:2rem; max-width:1240px; margin:0 auto; }
+.t-item { border-left:2px solid var(--accent); padding-left:1.75rem; }
+.t-quote { font-family:var(--font-serif); font-size:clamp(1rem,2vw,1.15rem); font-style:italic; font-weight:300; line-height:1.78; color:rgba(245,240,232,0.82); margin-bottom:1.35rem; }
+.t-author { font-family:var(--font-cond); font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); }
+.t-role { font-size:0.78rem; color:rgba(245,240,232,0.38); margin-top:0.2rem; }
+
+/* ── CTA BANNER ── */
+.cta-banner { position:relative; padding:clamp(4rem,8vw,8rem) clamp(1.5rem,5vw,3rem); text-align:center; overflow:hidden; }
+.cta-bg { position:absolute; inset:0; background:url('https://images.unsplash.com/photo-1500051638674-ff996a0ec29e?w=1600&q=80') center/cover; opacity:0.1; }
+.cta-content { position:relative; z-index:2; max-width:620px; margin:0 auto; }
+.cta-content h2 { font-family:var(--font-serif); font-size:clamp(2.2rem,5.5vw,4.2rem); font-weight:300; line-height:1.1; margin-bottom:1.2rem; }
+.cta-content h2 em { color:var(--accent-light); font-style:italic; }
+.cta-content p { font-size:clamp(0.9rem,1.8vw,0.97rem); color:rgba(245,240,232,0.58); margin-bottom:2.5rem; line-height:1.78; }
+.cta-btns { display:flex; gap:0.85rem; justify-content:center; flex-wrap:wrap; }
+
+/* ── MOBILE OVERRIDES ── */
+@media (max-width: 768px) {
+  .about-strip { grid-template-columns:1fr; gap:2rem; }
+  .about-img-accent { right:0; bottom:-1.5rem; }
+  .stat-strip { gap:1rem; }
+  .hero-btns { flex-direction:column; align-items:flex-start; }
+  .hero-btns .btn-primary, .hero-btns .btn-outline { width:100%; max-width:300px; justify-content:center; }
+}
+@media (max-width:480px) {
+  .services-grid { grid-template-columns:1fr; }
+  .service-card { aspect-ratio:4/3; }
+  .sc-desc { max-height:80px; opacity:1; }
+  .sc-link { opacity:1; transform:translateY(0); }
+  .cta-btns { flex-direction:column; align-items:center; }
+  .cta-btns .btn-primary, .cta-btns .btn-outline { width:100%; max-width:320px; }
 }
 </style>
 </head>
 <body>
+
 <nav id="navbar">
   <a href="index.html" class="nav-logo">The <span>Hillside</span> Studio</a>
   <ul class="nav-links">
-    <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="services.html">Services</a></li>
+    <li><a href="index.html" class="active" data-i18n="nav_home">Home</a></li>
+    <li><a href="services.html" data-i18n="nav_services">Services</a></li>
     <li><a href="portfolio.html">Portfolio</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="pricing.html">Pricing</a></li>
   </ul>
-  <a href="contact.html" class="nav-cta">Book a Session</a>
+  <a href="pages/contact.html" class="nav-cta" data-i18n="nav_book">Book a Session</a>
+  <button class="lang-toggle" aria-label="Toggle language">SW</button>
   <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
@@ -115,13 +175,15 @@
   <a href="portfolio.html">Portfolio</a>
   <a href="about.html">About</a>
   <a href="pricing.html">Pricing</a>
-  <a href="contact.html" class="mob-cta">Book a Session</a>
+  <a href="contact.html" class="mob-cta" data-i18n="mob_book">Book a Session</a>
+  <button class="lang-toggle" aria-label="Toggle language">SW</button>
 </div>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <div class="hero-tag">Photography &amp; Videography</div>
+    <div class="hero-tag">Photography &amp; Videography · Ruiru, Kenya</div>
     <h1>Where Light<br>Becomes <em>Story</em></h1>
     <p class="hero-sub">Elevated visual storytelling for brands, couples, and moments that deserve to be remembered forever.</p>
     <div class="hero-btns">
@@ -132,6 +194,7 @@
   <div class="scroll-hint"><div class="scroll-line"></div>Scroll</div>
 </section>
 
+<!-- ABOUT -->
 <section class="about-strip">
   <div class="about-visual">
     <div class="about-img-main reveal"></div>
@@ -143,7 +206,7 @@
     </div>
   </div>
   <div class="about-text">
-    <p class="section-label reveal">Our Story</p>
+    <p class="section-label reveal" style="justify-content:flex-start">Our Story</p>
     <h2 class="reveal reveal-delay-1">Crafted With <em>Intention,</em><br>Told With Heart</h2>
     <p class="reveal reveal-delay-2">The Hillside Studio was born from a single belief — that every image should feel as alive as the moment it captures. Nestled in Ruiru, our studio is a sanctuary for creatives, couples, and brands who want work that moves people.</p>
     <p class="reveal reveal-delay-2">We combine a meticulous eye with a relaxed approach, so you're always at ease in front of the lens.</p>
@@ -152,6 +215,7 @@
   </div>
 </section>
 
+<!-- SERVICES -->
 <section class="services-preview">
   <div class="sp-header">
     <p class="section-label reveal">What We Offer</p>
@@ -162,14 +226,18 @@
     <div class="service-card reveal"><div class="sc-bg" style="background-image:url('https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=800&q=80')"></div><div class="sc-overlay"></div><div class="sc-content"><div class="sc-tag">01 — Photography</div><h3>Wedding &amp;<br>Portraits</h3><p class="sc-desc">Timeless images that honour the emotion and beauty of your most important days.</p><a href="pages/services.html" class="sc-link">Learn More</a></div></div>
     <div class="service-card reveal reveal-delay-1"><div class="sc-bg" style="background-image:url('https://images.unsplash.com/photo-1579038773867-044c48829161?w=800&q=80')"></div><div class="sc-overlay"></div><div class="sc-content"><div class="sc-tag">02 — Videography</div><h3>Cinematic<br>Films</h3><p class="sc-desc">Wedding films and brand stories crafted with cinematic precision and intention.</p><a href="pages/services.html" class="sc-link">Learn More</a></div></div>
     <div class="service-card reveal reveal-delay-2"><div class="sc-bg" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80')"></div><div class="sc-overlay"></div><div class="sc-content"><div class="sc-tag">03 — Commercial</div><h3>Brand &amp;<br>Product</h3><p class="sc-desc">High-impact visual content for brands that want to command attention.</p><a href="pages/services.html" class="sc-link">Learn More</a></div></div>
-    <div class="service-card reveal reveal-delay-3"><div class="sc-bg" style="background-image:url('https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&q=80')"></div><div class="sc-overlay"></div><div class="sc-content"><div class="sc-tag">04 — Events</div><h3>Corporate &amp;<br>Events</h3><p class="sc-desc">Fast, professional coverage of corporate events, conferences, and launches.</p><a href="pages/services.html" class="sc-link">Learn More</a></div></div>
+    <div class="service-card reveal reveal-delay-3"><div class="sc-bg" style="background-image:url('https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&q=80')"></div><div class="sc-overlay"></div><div class="sc-content"><div class="sc-tag">04 — Events</div><h3>Corporate &amp;<br>Events</h3><p class="sc-desc">Fast, professional coverage of corporate events, conferences, and launches.</p><a href="services.html" class="sc-link">Learn More</a></div></div>
   </div>
   <div class="sp-footer reveal"><a href="services.html" class="btn-outline">View All Services</a></div>
 </section>
 
+<!-- PORTFOLIO -->
 <section class="portfolio-strip">
   <div class="ps-header reveal">
-    <div><p class="section-label" style="text-align:left;margin-bottom:.5rem">Recent Work</p><h2>Selected Projects</h2></div>
+    <div>
+      <p class="section-label" style="justify-content:flex-start;margin-bottom:0.4rem">Recent Work</p>
+      <h2>Selected Projects</h2>
+    </div>
     <a href="portfolio.html">View Full Portfolio →</a>
   </div>
   <div class="p-scroll">
@@ -181,6 +249,7 @@
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
 <section class="testimonials">
   <div class="t-header"><p class="section-label reveal">Kind Words</p><h2 class="reveal reveal-delay-1">What Clients Say</h2></div>
   <div class="t-track">
@@ -190,6 +259,7 @@
   </div>
 </section>
 
+<!-- CTA -->
 <section class="cta-banner">
   <div class="cta-bg"></div>
   <div class="cta-content">
@@ -205,21 +275,42 @@
 
 <footer class="site-footer">
   <div class="footer-logo">The Hillside Studio</div>
-  <div class="footer-copy">© 2025 The Hillside Studio. All rights reserved.</div>
+  <div class="footer-copy">© 2026 The Hillside Studio · Ruiru, Kenya</div>
   <div class="footer-social"><a href="#">Instagram</a><a href="#">Behance</a><a href="#">YouTube</a></div>
 </footer>
 
-<button class="chatbot-bubble" id="chatBubble" aria-label="Chat with us"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg><span class="notif" id="chatNotif"></span></button>
+<!-- WHATSAPP -->
+<button class="wa-btn" id="waBtn" aria-label="WhatsApp" data-tooltip="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</button>
+
+<!-- CHATBOT -->
+<button class="chatbot-bubble" id="chatBubble" aria-label="Chat with Hilda">
+  <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+  <span class="notif" id="chatNotif"></span>
+</button>
 <div class="chatbot-window" id="chatWindow">
   <div class="chatbot-header">
     <div class="chat-avatar">H</div>
-    <div class="chat-header-info"><div class="chat-header-name">Hilda — Studio Assistant</div><div class="chat-header-status">Online now</div></div>
-    <button class="chat-clear" id="chatClear" title="Clear History">↺</button>
+    <div class="chat-header-info">
+      <div class="chat-header-name">Hilda — Studio Assistant</div>
+      <div class="chat-header-status">Online now</div>
+    </div>
     <button class="chatbot-close" id="chatClose">✕</button>
   </div>
-  <div class="chatbot-msgs" id="chatMsgs"><div class="msg bot">Hello! I'm Hilda, your Hillside Studio assistant. I can help with pricing, booking, services, and more. What would you like to know?</div></div>
-  <div class="chat-suggestions" id="chatSuggestions"><button class="chat-suggestion">Wedding packages</button><button class="chat-suggestion">Pricing info</button><button class="chat-suggestion">How to book</button><button class="chat-suggestion">Turnaround time</button></div>
-  <div class="chatbot-input-row"><input class="chatbot-input" id="chatInput" type="text" placeholder="Ask anything about our studio…"/><button class="chatbot-send" id="chatSend">Send</button></div>
+  <div class="chatbot-msgs" id="chatMsgs">
+    <div class="msg bot">Hello! I'm Hilda 👋 How can I help you today? I can answer questions about our services, pricing, or help you book a session.</div>
+  </div>
+  <div class="chat-suggestions" id="chatSuggestions">
+    <button class="chat-suggestion">Wedding packages</button>
+    <button class="chat-suggestion">Pricing info</button>
+    <button class="chat-suggestion">How to book</button>
+    <button class="chat-suggestion">Turnaround time</button>
+  </div>
+  <div class="chatbot-input-row">
+    <input class="chatbot-input" id="chatInput" type="text" placeholder="Ask Hilda anything…"/>
+    <button class="chatbot-send" id="chatSend">Send</button>
+  </div>
 </div>
 
 <script src="shared.js"></script>

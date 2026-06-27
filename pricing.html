@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Pricing — The Hillside Studio</title>
-<meta name="description" content="Transparent and honest pricing for photography and videography services in Kenya. Explore our wedding, brand, and event packages."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="../shared.css"/>
+<link rel="stylesheet" href="shared.css"/>
 <style>
 .pricing-intro{text-align:center;padding:4rem 1.5rem 2rem;max-width:600px;margin:0 auto}
 .pricing-intro h2{font-family:var(--font-serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:300;margin-bottom:1rem}
@@ -28,7 +27,6 @@
 .pkg-features{list-style:none;margin-bottom:2rem}
 .pkg-features li{font-size:.84rem;color:rgba(245,240,232,.65);padding:.45rem 0;border-bottom:1px solid rgba(184,147,90,.1);display:flex;align-items:center;gap:.6rem}
 .pkg-features li::before{content:'—';color:var(--accent);font-size:.78rem}
-.pkg-card .btn-primary, .pkg-card .btn-outline{display:block;text-align:center;padding:.8rem}
 .addons{background:var(--dark-brown);padding:5rem 3rem;margin-top:0}
 .addons h2{font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.5rem);font-weight:300;text-align:center;margin-bottom:.75rem}
 .addons-sub{text-align:center;font-size:.9rem;color:rgba(245,240,232,.5);margin-bottom:3rem}
@@ -51,27 +49,36 @@
   .addons{padding:4rem 1.5rem}
   .faq{padding:4rem 1.5rem}
 }
+/* ── GLOBAL MOBILE TOUCH FIX ── */
+a,button{-webkit-tap-highlight-color:transparent}
+input,select,textarea{font-size:16px!important;} /* prevent iOS zoom */
+@media(max-width:600px){
+  .page-hero{padding:0 1.25rem 2.5rem}
+  .page-hero-content h1{font-size:clamp(2rem,8vw,3rem)}
+}
 </style>
 </head>
 <body>
 <nav id="navbar" class="solid">
-  <a href="../index.html" class="nav-logo">The <span>Hillside</span> Studio</a>
+  <a href="index.html" class="nav-logo">The <span>Hillside</span> Studio</a>
   <ul class="nav-links">
-    <li><a href="../index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="about.html">About</a></li><li><a href="pricing.html" class="active">Pricing</a></li>
+    <li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="about.html">About</a></li><li><a href="pricing.html" class="active">Pricing</a></li>
   </ul>
-  <a href="contact.html" class="nav-cta">Book a Session</a>
-  <button class="hamburger" id="hamburger" aria-label="Open navigation menu"><span></span><span></span><span></span></button>
+  <a href="contact.html" class="nav-cta" data-i18n="nav_book">Book a Session</a>
+  <button class="lang-toggle" aria-label="Toggle language">SW</button>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="../index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="about.html">About</a><a href="pricing.html">Pricing</a>
-  <a href="contact.html" class="mob-cta">Book a Session</a>
+  <a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="about.html">About</a><a href="pricing.html">Pricing</a>
+  <a href="contact.html" class="mob-cta" data-i18n="mob_book">Book a Session</a>
+  <button class="lang-toggle" aria-label="Toggle language">SW</button>
 </div>
 
 <div class="page-hero">
   <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1500051638674-ff996a0ec29e?w=1600&q=80')"></div>
   <div class="page-hero-overlay"></div>
   <div class="page-hero-content">
-    <div class="breadcrumb"><a href="../index.html">Home</a> › Pricing</div>
+    <div class="breadcrumb"><a href="index.html">Home</a> › Pricing</div>
     <h1>Simple, <em>Honest</em> Pricing</h1>
   </div>
 </div>
@@ -103,7 +110,7 @@
         <li>2 outfit changes</li>
         <li>14-day delivery</li>
       </ul>
-      <a href="contact.html" class="btn-outline">Book This</a>
+      <a href="contact.html" class="btn-outline" style="display:block;text-align:center;padding:.8rem">Book This</a>
     </div>
     <div class="pkg-card featured">
       <div class="pkg-badge">Most Popular</div>
@@ -119,7 +126,7 @@
         <li>Album design consultation</li>
         <li>21-day delivery</li>
       </ul>
-      <a href="contact.html" class="btn-primary">Book This</a>
+      <a href="contact.html" class="btn-primary" style="display:block;text-align:center;padding:.8rem">Book This</a>
     </div>
     <div class="pkg-card">
       <div class="pkg-tier">Bespoke</div>
@@ -133,7 +140,7 @@
         <li>Rush delivery available</li>
         <li>Dedicated creative director</li>
       </ul>
-      <a href="contact.html" class="btn-outline">Get a Quote</a>
+      <a href="contact.html" class="btn-outline" style="display:block;text-align:center;padding:.8rem">Get a Quote</a>
     </div>
   </div>
 </div>
@@ -323,19 +330,15 @@
   <div class="footer-social"><a href="#">Instagram</a><a href="#">Behance</a><a href="#">YouTube</a></div>
 </footer>
 
+<button class="wa-btn" id="waBtn" aria-label="WhatsApp" data-tooltip="Chat on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></button>
 <button class="chatbot-bubble" id="chatBubble"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg><span class="notif" id="chatNotif"></span></button>
 <div class="chatbot-window" id="chatWindow">
-  <div class="chatbot-header">
-    <div class="chat-avatar">H</div>
-    <div class="chat-header-info"><div class="chat-header-name">Hilda — Studio Assistant</div><div class="chat-header-status">Online now</div></div>
-    <button class="chat-clear" id="chatClear" title="Clear History">↺</button>
-    <button class="chatbot-close" id="chatClose">✕</button>
-  </div>
+  <div class="chatbot-header"><div class="chat-avatar">H</div><div class="chat-header-info"><div class="chat-header-name">Hilda — Studio Assistant</div><div class="chat-header-status">Online now</div></div><button class="chatbot-close" id="chatClose">✕</button></div>
   <div class="chatbot-msgs" id="chatMsgs"><div class="msg bot">Questions about our pricing? I can help you find the right package for your budget and needs.</div></div>
   <div class="chat-suggestions" id="chatSuggestions"><button class="chat-suggestion">Best package for weddings</button><button class="chat-suggestion">Payment plans</button><button class="chat-suggestion">What's included?</button></div>
   <div class="chatbot-input-row"><input class="chatbot-input" id="chatInput" type="text" placeholder="Ask about pricing…"/><button class="chatbot-send" id="chatSend">Send</button></div>
 </div>
-<script src="../shared.js"></script>
+<script src="shared.js"></script>
 <script>
 initNav(true);
 document.querySelectorAll('.pkg-tab').forEach(tab=>{
