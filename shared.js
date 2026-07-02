@@ -12,6 +12,7 @@ const TRANSLATIONS = {
   en: {
     nav_home:      'Home',
     nav_services:  'Services',
+    nav_projects:  'Projects',
     nav_portfolio: 'Portfolio',
     nav_about:     'About',
     nav_pricing:   'Pricing',
@@ -32,7 +33,7 @@ const TRANSLATIONS = {
     about_h2a:     'Crafted With',
     about_h2em:    'Intention,',
     about_h2b:     'Told With Heart',
-    about_p1:      "The Hillside Studio was born from a single belief — that every image should feel as alive as the moment it captures. Nestled in Ruiru, our studio is a sanctuary for creatives, couples, and brands who want work that moves people.",
+    about_p1:      "The Hillside Studios was born from a single belief — that every image should feel as alive as the moment it captures. Nestled in Ruiru, our studio is a sanctuary for creatives, couples, and brands who want work that moves people.",
     about_p2:      "We combine a meticulous eye with a relaxed approach, so you're always at ease in front of the lens.",
     stat_years:    'Years of Work',
     stat_proj:     'Projects Done',
@@ -48,7 +49,7 @@ const TRANSLATIONS = {
     ready_h2:      "Let's Create Something",
     ready_h2em:    'Extraordinary',
     ready_p:       "Fill in the form and we'll respond within 24 hours. Or just chat with Hilda — she knows everything.",
-    footer_copy:   '© 2025 The Hillside Studio · Ruiru, Kenya',
+    footer_copy:   '© 2025 The Hillside Studios · Ruiru, Kenya',
     chat_greeting: "Hello! I'm Hilda 👋 How can I help you today? I can answer questions about our services, pricing, or help you book a session.",
     chat_ph:       'Ask Hilda anything…',
     chat_status:   'Online now',
@@ -59,6 +60,7 @@ const TRANSLATIONS = {
   sw: {
     nav_home:      'Nyumbani',
     nav_services:  'Huduma',
+    nav_projects:  'Miradi',
     nav_portfolio: 'Kazi Yetu',
     nav_about:     'Kuhusu',
     nav_pricing:   'Bei',
@@ -79,7 +81,7 @@ const TRANSLATIONS = {
     about_h2a:     'Ilijengwa kwa',
     about_h2em:    'Makini,',
     about_h2b:     'Inayosimuliwa kwa Moyo',
-    about_p1:      "The Hillside Studio ilizaliwa kutoka imani moja — kwamba kila picha inapaswa kuhisi hai kama wakati ilionaswa. Iko Ruiru, studio yetu ni mahali salama kwa wabunifu, wapendanao, na biashara.",
+    about_p1:      "The Hillside Studios ilizaliwa kutoka imani moja — kwamba kila picha inapaswa kuhisi hai kama wakati ilionaswa. Iko Ruiru, studio yetu ni mahali salama kwa wabunifu, wapendanao, na biashara.",
     about_p2:      "Tunachanganya jicho makini na mkabala wa utulivu, ili uhisi vizuri mbele ya kamera.",
     stat_years:    'Miaka ya Kazi',
     stat_proj:     'Miradi Iliyokamilika',
@@ -95,7 +97,7 @@ const TRANSLATIONS = {
     ready_h2:      'Hebu Tuunde Kitu',
     ready_h2em:    'Cha Kipekee',
     ready_p:       "Jaza fomu na tutakujibu ndani ya masaa 24. Au zungumza na Hilda — anajua kila kitu.",
-    footer_copy:   '© 2025 The Hillside Studio · Ruiru, Kenya',
+    footer_copy:   '© 2025 The Hillside Studios · Ruiru, Kenya',
     chat_greeting: "Habari! Mimi ni Hilda 👋 Naweza kukusaidia leo? Ninaweza kujibu maswali kuhusu huduma zetu, bei, au kukusaidia kupanga kikao.",
     chat_ph:       'Uliza Hilda chochote…',
     chat_status:   'Mtandaoni sasa',
@@ -112,7 +114,7 @@ function applyTranslations(lang) {
   document.documentElement.lang = lang;
   // Nav links
   const navLinks = document.querySelectorAll('.nav-links li a');
-  const keys = ['nav_home','nav_services','nav_portfolio','nav_about','nav_pricing'];
+  const keys = ['nav_home','nav_services','nav_projects','nav_portfolio','nav_about','nav_pricing'];
   navLinks.forEach((a, i) => { if (keys[i]) a.textContent = T[keys[i]]; });
   // Nav CTA
   document.querySelectorAll('.nav-cta').forEach(el => el.textContent = T.nav_book);
@@ -309,7 +311,7 @@ function initChatbot() {
       const data = await res.json();
       const reply = data.content?.[0]?.text || (currentLang === 'sw'
         ? 'Samahani, kuna tatizo. Tafadhali wasiliana nasi: hello@hillsidestudio.co.ke'
-        : "Sorry, I'm having trouble connecting. Please email hello@hillsidestudio.co.ke");
+        : "Sorry, I'm having trouble connecting. Please email hello@hillsidestudios.co.ke");
       typing.remove();
       addMsg(reply, 'bot');
       history.push({ role: 'assistant', content: reply });
@@ -329,8 +331,8 @@ function initWhatsApp() {
   if (!wa) return;
   wa.addEventListener('click', () => {
     const msg = currentLang === 'sw'
-      ? 'Habari! Ningependa kupata maelezo kuhusu huduma za The Hillside Studio.'
-      : 'Hello! I\'d like to enquire about The Hillside Studio\'s services.';
+      ? 'Habari! Ningependa kupata maelezo kuhusu huduma za The Hillside Studios.'
+      : 'Hello! I\'d like to enquire about The Hillside Studios\'s services.';
     const number = '254700000000';
     window.open(`https://wa.me/${number}?text=${encodeURIComponent(msg)}`, '_blank');
   });

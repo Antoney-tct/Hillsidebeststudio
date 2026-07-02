@@ -1,6 +1,6 @@
-# The Hillside Studio
+# The Hillside Studios
 
-A premium, high-end photography and videography studio website designed for **The Hillside Studio** based in Ruiru, Kenya.
+A premium, high-end photography and videography studio website designed for **The Hillside Studios** based in Ruiru, Kenya.
 
 ## ✨ Features
 
@@ -25,4 +25,4 @@ A premium, high-end photography and videography studio website designed for **Th
 3. Open `index.html` in your browser via `localhost`.
 
 ---
-© 2025 The Hillside Studio.
+© 2025 The Hillside Studios.
