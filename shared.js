@@ -310,7 +310,7 @@ function initChatbot() {
       });
       const data = await res.json();
       const reply = data.content?.[0]?.text || (currentLang === 'sw'
-        ? 'Samahani, kuna tatizo. Tafadhali wasiliana nasi: hello@hillsidestudio.co.ke'
+        ? 'Samahani, kuna tatizo. Tafadhali wasiliana nasi: hello@hillsidestudios.co.ke'
         : "Sorry, I'm having trouble connecting. Please email hello@hillsidestudios.co.ke");
       typing.remove();
       addMsg(reply, 'bot');
@@ -318,8 +318,8 @@ function initChatbot() {
     } catch {
       typing.remove();
       addMsg(currentLang === 'sw'
-        ? 'Samahani, kuna tatizo la muunganiko. Piga simu: +254 700 000 000'
-        : 'Connection issue — please call +254 700 000 000 or WhatsApp us.',
+        ? 'Samahani, kuna tatizo la muunganiko. Piga simu: +254 713 775 528'
+        : 'Connection issue — please call +254 713 775 528 or WhatsApp us.',
         'bot');
     }
   }
@@ -333,7 +333,7 @@ function initWhatsApp() {
     const msg = currentLang === 'sw'
       ? 'Habari! Ningependa kupata maelezo kuhusu huduma za The Hillside Studios.'
       : 'Hello! I\'d like to enquire about The Hillside Studios\'s services.';
-    const number = '254700000000';
+    const number = '254713755528';
     window.open(`https://wa.me/${number}?text=${encodeURIComponent(msg)}`, '_blank');
   });
 }
