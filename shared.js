@@ -32,7 +32,7 @@ const TRANSLATIONS = {
     about_label:   'Our Story',
     about_h2a:     'Crafted With',
     about_h2em:    'Intention,',
-    about_h2b:     'Told With Heart',
+    about_h2b:     'Narated With Heart',
     about_p1:      "The Hillside Studios was born from a single belief — that every image should feel as alive as the moment it captures. Nestled in Ruiru, our studio is a sanctuary for creatives, couples, and brands who want work that moves people.",
     about_p2:      "We combine a meticulous eye with a relaxed approach, so you're always at ease in front of the lens.",
     stat_years:    'Years of Work',
@@ -49,7 +49,7 @@ const TRANSLATIONS = {
     ready_h2:      "Let's Create Something",
     ready_h2em:    'Extraordinary',
     ready_p:       "Fill in the form and we'll respond within 24 hours. Or just chat with Hilda — she knows everything.",
-    footer_copy:   '© 2025 The Hillside Studios · Ruiru, Kenya',
+    footer_copy:   '© 2026 The Hillside Studios · , Kenya',
     chat_greeting: "Hello! I'm Hilda 👋 How can I help you today? I can answer questions about our services, pricing, or help you book a session.",
     chat_ph:       'Ask Hilda anything…',
     chat_status:   'Online now',
@@ -97,7 +97,7 @@ const TRANSLATIONS = {
     ready_h2:      'Hebu Tuunde Kitu',
     ready_h2em:    'Cha Kipekee',
     ready_p:       "Jaza fomu na tutakujibu ndani ya masaa 24. Au zungumza na Hilda — anajua kila kitu.",
-    footer_copy:   '© 2025 The Hillside Studios · Ruiru, Kenya',
+    footer_copy:   '© 2026 The Hillside Studios · Nairobi, Kenya',
     chat_greeting: "Habari! Mimi ni Hilda 👋 Naweza kukusaidia leo? Ninaweza kujibu maswali kuhusu huduma zetu, bei, au kukusaidia kupanga kikao.",
     chat_ph:       'Uliza Hilda chochote…',
     chat_status:   'Mtandaoni sasa',
@@ -226,8 +226,8 @@ ADD-ONS: Drone KES 15,000 · Rush delivery KES 8,000 · Printed album KES 18,000
 
 BOOKING: 30% deposit to secure a date. Balance due 7 days before. Payment plans for packages above KES 75,000.
 TURNAROUND: Photos 14–21 days. Films 21–35 days. Rush available.
-CONTACT: hello@hillsidestudio.co.ke · +254 700 000 000 · WhatsApp available.
-LOCATION: Ruiru, Kiambu County. Travel across Kenya; international by arrangement.
+CONTACT: hello@hillsidestudio.co.ke · +254 713775 528 · WhatsApp available.
+LOCATION: Nairobi, CBD. Travel across Kenya; international by arrangement.
 STUDIO HOURS: Mon–Fri 8am–6pm · Sat 9am–4pm · Sun by appointment.
 
 In Swahili responses, be warm and use natural Kenyan Swahili. Keep responses under 90 words unless the question genuinely requires more.`;
