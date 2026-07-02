@@ -148,7 +148,7 @@ nav.scrolled, nav.solid {
 
 .mobile-menu a {
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 8vw, 3rem);
+  font-size: clamp(1.8rem, 7vw, 2.5rem);
   font-weight: 300;
   color: rgba(245,240,232,0.85);
   text-decoration: none;
@@ -510,8 +510,8 @@ nav.scrolled, nav.solid {
 /* WhatsApp float button */
 .wa-btn {
   position: fixed;
-  bottom: 5.5rem;
-  right: 1.5rem;
+  bottom: 1.5rem;
+  left: 1.5rem;
   z-index: 499;
   width: 52px; height: 52px;
   border-radius: 50%;
@@ -529,7 +529,7 @@ nav.scrolled, nav.solid {
 .wa-btn::before {
   content: attr(data-tooltip);
   position: absolute;
-  right: calc(100% + 10px);
+  left: calc(100% + 10px);
   top: 50%; transform: translateY(-50%);
   background: rgba(22,20,17,0.95);
   color: var(--cream);
@@ -549,7 +549,7 @@ nav.scrolled, nav.solid {
 /* Stack adjustment when both chatbot + wa visible */
 .chatbot-bubble { bottom: 1.5rem; }
 @media (max-width: 600px) {
-  .wa-btn { bottom: 4.8rem; right: 1.25rem; width: 48px; height: 48px; }
+  .wa-btn { bottom: 1.25rem; left: 1.25rem; width: 48px; height: 48px; }
   .wa-btn::before { display: none; }
   .chatbot-bubble { bottom: 1.25rem; right: 1.25rem; }
 }

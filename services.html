@@ -36,6 +36,30 @@
 .step h4{font-family:var(--font-cond);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cream);margin-bottom:.6rem}
 .step p{font-size:.82rem;color:rgba(245,240,232,.5);line-height:1.65}
 @media(max-width:768px){
+  /* ── VIDEO STRIP (copied from index.html) ── */
+  .v-scroll {
+    display:flex; gap:3px; overflow-x:auto;
+    padding:0 clamp(1.5rem,5vw,3rem) 0.5rem;
+    scrollbar-width:none; scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+  }
+  .v-scroll::-webkit-scrollbar { display:none; }
+  .v-item {
+    flex:0 0 clamp(85%, 45vw, 520px);
+    min-width:300px; aspect-ratio:16/9;
+    scroll-snap-align:start; position:relative;
+    display:block; text-decoration:none; overflow:hidden;
+  }
+  .v-thumb { width:100%; height:100%; background-size:cover; background-position:center; transition:transform 0.55s cubic-bezier(0.25,0.1,0.25,1); }
+  .v-item:hover .v-thumb { transform:scale(1.05); }
+  .v-overlay { position:absolute; inset:0; background:rgba(20,18,15,0.3); display:flex; align-items:center; justify-content:center; transition:background 0.3s; }
+  .v-item:hover .v-overlay { background:rgba(20,18,15,0.5); }
+  .play-icon { width:clamp(50px,8vw,70px); height:clamp(50px,8vw,70px); background:rgba(245,240,232,0.85); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:transform 0.3s; }
+  .play-icon svg { fill:var(--charcoal); width:40%; height:40%; }
+  .v-item:hover .play-icon { transform:scale(1.1); background:var(--cream); }
+  .v-cap { position:absolute; bottom:0; left:0; right:0; padding:1.25rem; background:linear-gradient(to top,rgba(20,18,15,0.88),transparent); }
+  .v-cap h3 { font-family:var(--font-serif); font-size:clamp(1rem,2vw,1.2rem); font-weight:400; color:var(--cream); line-height:1.2; margin-bottom:0.2rem; }
+  .v-cap span { font-family:var(--font-cond); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(245,240,232,0.5); }
   .service-section{grid-template-columns:1fr;padding:4rem 1.5rem;gap:2.5rem}
   .service-section:nth-child(even){direction:ltr}
   .service-section.dark .inner{grid-template-columns:1fr;padding:0 1.5rem}
@@ -60,6 +84,7 @@ input,select,textarea{font-size:16px!important;} /* prevent iOS zoom */
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="projects.html">Projects</a></li>
     <li><a href="portfolio.html">Portfolio</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="pricing.html">Pricing</a></li>
@@ -71,6 +96,7 @@ input,select,textarea{font-size:16px!important;} /* prevent iOS zoom */
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html">Home</a>
   <a href="services.html">Services</a>
+  <a href="projects.html">Projects</a>
   <a href="portfolio.html">Portfolio</a>
   <a href="about.html">About</a>
   <a href="pricing.html">Pricing</a>
@@ -120,7 +146,27 @@ input,select,textarea{font-size:16px!important;} /* prevent iOS zoom */
         <li>Documentary and short film production</li>
         <li>Drone aerial footage add-on available</li>
       </ul>
-      <a href="contact.html" class="btn-primary reveal reveal-delay-3">Book a Film Project</a>
+      <div class="reveal reveal-delay-3" style="display:flex; gap:1rem; flex-wrap:wrap;">
+        <a href="contact.html" class="btn-primary">Book a Film Project</a>
+        <a href="portfolio.html#video" class="btn-outline">View All Films</a>
+      </div>
+    </div>
+  </div>
+  <div class="v-scroll reveal reveal-delay-2" style="max-width:1200px; margin:3rem auto 0; padding:0 3rem 0.5rem;">
+    <a href="#" class="v-item">
+      <div class="v-thumb" style="background-image:url('https://images.unsplash.com/photo-1500051638674-ff996a0ec29e?w=1600&q=80')"></div>
+      <div class="v-overlay"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      <div class="v-cap"><h3>Amara & David's Wedding Film</h3><span>Nairobi, 2024</span></div>
+    </a>
+    <a href="#" class="v-item">
+      <div class="v-thumb" style="background-image:url('https://images.unsplash.com/photo-1579038773867-044c48829161?w=1600&q=80')"></div>
+      <div class="v-overlay"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      <div class="v-cap"><h3>Forma Label Brand Film</h3><span>Campaign, 2024</span></div>
+    </a>
+    <a href="#" class="v-item">
+      <div class="v-thumb" style="background-image:url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1600&q=80')"></div>
+      <div class="v-overlay"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      <div class="v-cap"><h3>Zara & Mwangi Engagement</h3><span>Cinematic Short, 2024</span></div>
     </div>
   </div>
 </div>
@@ -190,8 +236,8 @@ input,select,textarea{font-size:16px!important;} /* prevent iOS zoom */
   <p class="section-label reveal">Ready to Begin?</p>
   <p class="reveal reveal-delay-1" style="font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;margin-bottom:2rem">Let's talk about your <em style="color:var(--accent-light);font-style:italic">project</em></p>
   <div class="reveal reveal-delay-2" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
-    <a href="contact.html" class="btn-primary">Book a Session</a>
-    <a href="pricing.html" class="btn-outline">View Pricing</a>
+    <a href="contact.html" class="btn-primary" data-i18n="btn_book">Book a Session</a>
+    <a href="projects.html" class="btn-outline">View Projects</a>
   </div>
 </div>
 

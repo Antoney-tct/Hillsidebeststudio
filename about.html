@@ -13,6 +13,18 @@
 .mission-text h2{font-family:var(--font-serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.2;margin-bottom:1.5rem}
 .mission-text h2 em{color:var(--accent-light);font-style:italic}
 .mission-text p{font-size:.93rem;line-height:1.9;color:rgba(245,240,232,.7);margin-bottom:1.2rem}
+.brand-film{padding:5rem 3rem;text-align:center}
+.brand-film h2{font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.5rem);font-weight:300;margin-bottom:2.5rem}
+.brand-film h2 em{color:var(--accent-light);font-style:italic}
+.film-showcase{max-width:900px;margin:0 auto;position:relative;display:block;text-decoration:none;overflow:hidden}
+.film-thumb{width:100%;aspect-ratio:16/9;background:url('https://images.unsplash.com/photo-1552168324-d612d77725e3?w=1600&q=80') center/cover;transition:transform .5s}
+.film-showcase:hover .film-thumb{transform:scale(1.03)}
+.film-overlay{position:absolute;inset:0;background:rgba(20,18,15,0.3);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:background .3s}
+.film-showcase:hover .film-overlay{background:rgba(20,18,15,0.5)}
+.film-play{width:clamp(60px,9vw,80px);height:clamp(60px,9vw,80px);background:rgba(245,240,232,0.85);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform .3s}
+.film-play svg{fill:var(--charcoal);width:40%;height:40%}
+.film-showcase:hover .film-play{transform:scale(1.1);background:var(--cream)}
+.film-caption{font-family:var(--font-cond);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cream);margin-top:1.5rem;opacity:.8}
 .values{background:var(--dark-brown);padding:6rem 3rem}
 .values-header{text-align:center;max-width:500px;margin:0 auto 4rem}
 .values-header h2{font-family:var(--font-serif);font-size:clamp(2rem,3vw,2.8rem);font-weight:300;margin-bottom:.75rem}
@@ -39,6 +51,7 @@
 @media(max-width:768px){
   .mission{grid-template-columns:1fr;padding:4rem 1.5rem;gap:3rem}
   .mission-img::after{display:none}
+  .brand-film{padding:4rem 1.5rem}
   .values{padding:4rem 1.5rem}
   .values-grid{grid-template-columns:1fr}
   .team{padding:4rem 1.5rem}
@@ -57,16 +70,16 @@ input,select,textarea{font-size:16px!important;} /* prevent iOS zoom */
 </head>
 <body>
 <nav id="navbar" class="solid">
-  <a href="../index.html" class="nav-logo">The <span>Hillside</span> Studio</a>
+  <a href="index.html" class="nav-logo">The <span>Hillside</span> Studio</a>
   <ul class="nav-links">
-    <li><a href="../index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="about.html" class="active">About</a></li><li><a href="pricing.html">Pricing</a></li>
+    <li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="projects.html">Projects</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="about.html" class="active">About</a></li><li><a href="pricing.html">Pricing</a></li>
   </ul>
   <a href="contact.html" class="nav-cta" data-i18n="nav_book">Book a Session</a>
   <button class="lang-toggle" aria-label="Toggle language">SW</button>
   <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="../index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="about.html">About</a><a href="pricing.html">Pricing</a>
+  <a href="index.html">Home</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="portfolio.html">Portfolio</a><a href="about.html">About</a><a href="pricing.html">Pricing</a>
   <a href="contact.html" class="mob-cta" data-i18n="mob_book">Book a Session</a>
   <button class="lang-toggle" aria-label="Toggle language">SW</button>
 </div>
@@ -75,7 +88,7 @@ input,select,textarea{font-size:16px!important;} /* prevent iOS zoom */
   <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1552168324-d612d77725e3?w=1600&q=80')"></div>
   <div class="page-hero-overlay"></div>
   <div class="page-hero-content">
-    <div class="breadcrumb"><a href="../index.html">Home</a> › About</div>
+    <div class="breadcrumb"><a href="index.html">Home</a> › About</div>
     <h1>About <em>Us</em></h1>
   </div>
 </div>
@@ -88,6 +101,20 @@ input,select,textarea{font-size:16px!important;} /* prevent iOS zoom */
     <p class="reveal reveal-delay-2">The Hillside Studio started in 2016 with a single camera, a pickup truck, and an obsession with finding the perfect light. What began as weekend portrait sessions in the hills of Ruiru grew into one of Kenya's most sought-after photography and videography studios.</p>
     <p class="reveal reveal-delay-2">We believe deeply that great photography is not just about technical skill — it's about building trust with the people in front of your lens, so they can be fully themselves. That philosophy runs through every project we take on.</p>
     <p class="reveal reveal-delay-2">Today, our team covers weddings, brand campaigns, events, and cinematic films across Kenya and beyond. The hills are still our home. The light is still our obsession.</p>
+  </div>
+</section>
+
+<section class="brand-film">
+  <div class="reveal">
+    <p class="section-label">Our Story, In Motion</p>
+    <h2>The Hillside Studio <em>Brand Film</em></h2>
+    <a href="#" class="film-showcase">
+      <div class="film-thumb"></div>
+      <div class="film-overlay">
+        <div class="film-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="film-caption">Watch Now (1:45)</div>
+      </div>
+    </a>
   </div>
 </section>
 
@@ -114,19 +141,19 @@ input,select,textarea{font-size:16px!important;} /* prevent iOS zoom */
   <div class="team-grid">
     <div class="team-card reveal">
       <div class="team-photo" style="background-image:url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&q=80')"></div>
-      <div class="team-name">Brian Kamau</div>
+      <div class="team-name">Jared Ouko</div>
       <div class="team-role">Lead Photographer & Founder</div>
-      <p class="team-bio">8 years behind the lens. Obsessed with light, shadow, and the decisive moment. Brian founded the studio from the boot of his car.</p>
+      <p class="team-bio">8 years behind the lens. Obsessed with light, shadow, and the decisive moment. Jared founded the studio from the living room of his house.</p>
     </div>
     <div class="team-card reveal reveal-delay-1">
       <div class="team-photo" style="background-image:url('https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80')"></div>
-      <div class="team-name">Aisha Ndungu</div>
+      <div class="team-name">Aisha Atieno</div>
       <div class="team-role">Lead Videographer & Editor</div>
       <p class="team-bio">Film school graduate turned cinematic storyteller. Aisha crafts every film with the patience of a documentarian and the eye of an artist.</p>
     </div>
     <div class="team-card reveal reveal-delay-2">
       <div class="team-photo" style="background-image:url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&q=80')"></div>
-      <div class="team-name">Lena Waweru</div>
+      <div class="team-name">Lena Achieng</div>
       <div class="team-role">Brand & Commercial Photographer</div>
       <p class="team-bio">Former art director who crossed over to photography. Lena brings a designer's eye to every brand shoot she leads.</p>
     </div>
@@ -150,7 +177,7 @@ input,select,textarea{font-size:16px!important;} /* prevent iOS zoom */
 
 <footer class="site-footer">
   <div class="footer-logo">The Hillside Studio</div>
-  <div class="footer-copy">© 2025 The Hillside Studio. All rights reserved.</div>
+  <div class="footer-copy">© 2026 The Hillside Studio. All rights reserved.</div>
   <div class="footer-social"><a href="#">Instagram</a><a href="#">Behance</a><a href="#">YouTube</a></div>
 </footer>
 
