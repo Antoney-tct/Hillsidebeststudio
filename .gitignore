@@ -7,5 +7,6 @@ desktop.ini
 *.log
 tmp/
 
+
 # Security: If you use an API key in chat.php, 
 # consider using environment variables instead of hardcoding.

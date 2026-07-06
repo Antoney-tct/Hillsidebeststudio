@@ -6,6 +6,7 @@ A premium, high-end photography and videography studio website designed for **Th
 
 - **Modern Aesthetic**: Minimalist, luxury design using a cream and charcoal palette with gold accents.
 - **Custom Chatbot (Hilda)**: A JavaScript-powered assistant with keyword recognition, "Did you mean...?" fuzzy matching, and local storage persistence.
+
 - **Performance Optimized**: Uses modern CSS variables, semantic HTML5, and efficient asset loading.
 - **Interactive UI**:
   - **Scroll Reveal**: Elements animate into view using the `IntersectionObserver` API.

@@ -109,6 +109,7 @@ const TRANSLATIONS = {
 
 let currentLang = localStorage.getItem('hs_lang') || 'en';
 
+
 function applyTranslations(lang) {
   const T = TRANSLATIONS[lang];
   document.documentElement.lang = lang;
