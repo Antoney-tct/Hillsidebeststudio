@@ -6,16 +6,16 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --cream: #F0D08A;
-  --charcoal: #141414;
-  --dark-brown: #1E1B16;
-  --mid: #7A6840;
-  --accent: #C9A65E;
-  --accent-light: #F0D08A;
-  --accent-dark: #A77C30;
-  --font-serif: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'Montserrat', sans-serif;
-  --font-cond: 'Montserrat', sans-serif;
+  --cream: #F5F0E8;
+  --charcoal: #1C1A17;
+  --dark-brown: #2E2A24;
+  --mid: #6B6357;
+  --accent: #B8935A;
+  --accent-light: #D4B483;
+  --accent-dark: #8C6B3A;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Barlow', sans-serif;
+  --font-cond: 'Barlow Condensed', sans-serif;
   /* spacing scale */
   --space-xs: 0.5rem;
   --space-sm: 1rem;
@@ -44,7 +44,7 @@ nav {
   transition: background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
 }
 nav.scrolled, nav.solid {
-  background: rgba(14, 12, 10, 0.98);
+  background: rgba(22, 20, 17, 0.97);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   padding: 0.85rem 2rem;
@@ -53,35 +53,18 @@ nav.scrolled, nav.solid {
 
 /* Logo — bigger, more readable */
 .nav-logo {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cream);
   text-decoration: none;
+  line-height: 1;
   flex-shrink: 0;
   z-index: 210;
-  display: flex;
-  align-items: center;
 }
-/* Image logo (when logo image exists) */
-.nav-logo img {
-  height: 52px;
-  width: auto;
-  display: block;
-  transition: opacity 0.25s;
-  filter: drop-shadow(0 1px 6px rgba(201,166,94,0.25));
-}
-.nav-logo:hover img { opacity: 0.88; }
-/* Text fallback (when no image) */
-.nav-logo .logo-text {
-  font-family: var(--font-serif);
-  font-size: 1.15rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent-light);
-  line-height: 1;
-}
-.nav-logo .logo-text span { color: var(--accent); }
-/* Scrolled: shrink logo slightly */
-nav.scrolled .nav-logo img,
-nav.solid .nav-logo img { height: 40px; }
+.nav-logo span { color: var(--accent); }
 
 /* Desktop links */
 .nav-links {
@@ -91,52 +74,38 @@ nav.solid .nav-logo img { height: 40px; }
 }
 .nav-links a {
   font-family: var(--font-cond);
-  font-size: 1rem;
-  letter-spacing: 0.16em;
+  font-size: 0.95rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #ffffff;
+  color: var(--cream);
   text-decoration: none;
-  padding: 0.5rem 0.9rem;
-  opacity: 1;
-  font-weight: 500;
-  text-shadow: 0 1px 6px rgba(0,0,0,0.7);
-  transition: color 0.25s;
+  padding: 0.5rem 0.85rem;
+  opacity: 0.8;
+  transition: opacity 0.25s, color 0.25s;
   min-height: var(--touch);
   display: flex; align-items: center;
-  position: relative;
 }
-.nav-links a::after {
-  content: '';
-  position: absolute; bottom: 6px; left: 0.9rem; right: 0.9rem;
-  height: 1px; background: var(--accent);
-  transform: scaleX(0); transform-origin: left;
-  transition: transform 0.3s ease;
+.nav-links a:hover, .nav-links a.active {
+  opacity: 1;
+  color: var(--accent-light);
 }
-.nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
-.nav-links a:hover, .nav-links a.active { color: var(--accent-light); }
 
 /* CTA Button — desktop */
 .nav-cta {
   font-family: var(--font-cond);
-  font-size: 0.9rem;
-  letter-spacing: 0.18em;
+  font-size: 0.88rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #141414;
+  color: var(--charcoal);
   background: var(--accent);
-  padding: 0.75rem 1.75rem;
+  padding: 0.7rem 1.6rem;
   text-decoration: none;
   min-height: var(--touch);
   display: flex; align-items: center;
-  transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+  transition: background 0.25s, transform 0.2s;
   white-space: nowrap;
-  font-weight: 600;
-  box-shadow: 0 2px 12px rgba(201,166,94,0.35);
 }
-.nav-cta:hover {
-  background: var(--accent-light);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(201,166,94,0.5);
-}
+.nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); }
 
 /* ══ HAMBURGER ══ */
 .hamburger {
@@ -179,7 +148,7 @@ nav.solid .nav-logo img { height: 40px; }
 
 .mobile-menu a {
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 8vw, 3rem);
+  font-size: clamp(1.8rem, 7vw, 2.5rem);
   font-weight: 300;
   color: rgba(245,240,232,0.85);
   text-decoration: none;
@@ -541,8 +510,8 @@ nav.solid .nav-logo img { height: 40px; }
 /* WhatsApp float button */
 .wa-btn {
   position: fixed;
-  bottom: 5.5rem;
-  right: 1.5rem;
+  bottom: 1.5rem;
+  left: 1.5rem;
   z-index: 499;
   width: 52px; height: 52px;
   border-radius: 50%;
@@ -560,7 +529,7 @@ nav.solid .nav-logo img { height: 40px; }
 .wa-btn::before {
   content: attr(data-tooltip);
   position: absolute;
-  right: calc(100% + 10px);
+  left: calc(100% + 10px);
   top: 50%; transform: translateY(-50%);
   background: rgba(22,20,17,0.95);
   color: var(--cream);
@@ -580,16 +549,16 @@ nav.solid .nav-logo img { height: 40px; }
 /* Stack adjustment when both chatbot + wa visible */
 .chatbot-bubble { bottom: 1.5rem; }
 @media (max-width: 600px) {
-  .wa-btn { bottom: 4.8rem; right: 1.25rem; width: 48px; height: 48px; }
+  .wa-btn { bottom: 1.25rem; left: 1.25rem; width: 48px; height: 48px; }
   .wa-btn::before { display: none; }
   .chatbot-bubble { bottom: 1.25rem; right: 1.25rem; }
 }
 
 /* Language toggle button */
 .lang-toggle {
-  background: rgba(201,166,94,0.18);
-  border: 1px solid rgba(201,166,94,0.5);
-  color: #ffffff;
+  background: rgba(184,147,90,0.15);
+  border: 1px solid rgba(184,147,90,0.35);
+  color: var(--accent-light);
   font-family: var(--font-cond);
   font-size: 0.72rem;
   letter-spacing: 0.18em;
