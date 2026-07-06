@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>The Hillside Studios — Photography & Videography Kenya</title>
+<title>The Hillside Studio — Photography & Videography Kenya</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="shared.css"/>
 <style>
 /* ── HERO ── */
@@ -14,10 +14,18 @@
   position:relative; height:100svh; min-height:600px;
   display:flex; align-items:flex-end; overflow:hidden;
 }
+/* Always-dark strip at top for nav legibility */
+.hero::after {
+  content:'';
+  position:absolute; top:0; left:0; right:0;
+  height:120px;
+  background:linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, transparent 100%);
+  z-index:1; pointer-events:none;
+}
 .hero-bg {
   position:absolute; inset:0;
   background:
-    linear-gradient(to bottom, rgba(28,26,23,0.15) 0%, rgba(28,26,23,0) 35%, rgba(28,26,23,0.92) 100%),
+    linear-gradient(to bottom, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.1) 40%, rgba(10,10,10,0.92) 100%),
     url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1600&q=80') center/cover no-repeat;
   animation:heroZoom 20s ease-in-out infinite alternate;
 }
@@ -109,38 +117,12 @@
   -webkit-overflow-scrolling:touch;
 }
 .p-scroll::-webkit-scrollbar { display:none; }
-.p-item { flex:0 0 clamp(78%,30vw,calc(33.33% - 2px)); min-width:240px; aspect-ratio:4/5; overflow:hidden; scroll-snap-align:start; position:relative; }
+.p-item { flex:0 0 clamp(82%,32vw,calc(33.33% - 2px)); min-width:260px; aspect-ratio:3/2; overflow:hidden; scroll-snap-align:start; position:relative; }
 .p-img { width:100%; height:100%; background-size:cover; background-position:center; transition:transform 0.55s cubic-bezier(0.25,0.1,0.25,1); }
 .p-item:hover .p-img { transform:scale(1.05); }
 .p-cap { position:absolute; bottom:0; left:0; right:0; padding:1.25rem; background:linear-gradient(to top,rgba(20,18,15,0.88),transparent); transform:translateY(6px); opacity:0; transition:opacity 0.3s, transform 0.3s; }
 .p-item:hover .p-cap { opacity:1; transform:translateY(0); }
 .p-cap span { font-family:var(--font-cond); font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent-light); }
-
-/* ── VIDEO STRIP ── */
-.video-strip { padding:clamp(4rem,8vw,8rem) 0; }
-.v-scroll {
-  display:flex; gap:3px; overflow-x:auto;
-  padding:0 clamp(1.5rem,5vw,3rem) 0.5rem;
-  scrollbar-width:none; scroll-snap-type:x mandatory;
-  -webkit-overflow-scrolling:touch;
-}
-.v-scroll::-webkit-scrollbar { display:none; }
-.v-item {
-  flex:0 0 clamp(85%, 45vw, 520px);
-  min-width:300px; aspect-ratio:16/9;
-  scroll-snap-align:start; position:relative;
-  display:block; text-decoration:none; overflow:hidden;
-}
-.v-thumb { width:100%; height:100%; background-size:cover; background-position:center; transition:transform 0.55s cubic-bezier(0.25,0.1,0.25,1); }
-.v-item:hover .v-thumb { transform:scale(1.05); }
-.v-overlay { position:absolute; inset:0; background:rgba(20,18,15,0.3); display:flex; align-items:center; justify-content:center; transition:background 0.3s; }
-.v-item:hover .v-overlay { background:rgba(20,18,15,0.5); }
-.play-icon { width:clamp(50px,8vw,70px); height:clamp(50px,8vw,70px); background:rgba(245,240,232,0.85); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:transform 0.3s; }
-.play-icon svg { fill:var(--charcoal); width:40%; height:40%; }
-.v-item:hover .play-icon { transform:scale(1.1); background:var(--cream); }
-.v-cap { position:absolute; bottom:0; left:0; right:0; padding:1.25rem; background:linear-gradient(to top,rgba(20,18,15,0.88),transparent); }
-.v-cap h3 { font-family:var(--font-serif); font-size:clamp(1rem,2vw,1.2rem); font-weight:400; color:var(--cream); line-height:1.2; margin-bottom:0.2rem; }
-.v-cap span { font-family:var(--font-cond); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(245,240,232,0.5); }
 
 /* ── TESTIMONIALS ── */
 .testimonials { background:var(--dark-brown); padding:clamp(4rem,8vw,8rem) clamp(1.5rem,5vw,3rem); position:relative; overflow:hidden; }
@@ -161,6 +143,46 @@
 .cta-content h2 em { color:var(--accent-light); font-style:italic; }
 .cta-content p { font-size:clamp(0.9rem,1.8vw,0.97rem); color:rgba(245,240,232,0.58); margin-bottom:2.5rem; line-height:1.78; }
 .cta-btns { display:flex; gap:0.85rem; justify-content:center; flex-wrap:wrap; }
+
+
+/* ── CINEMATIC STRIP ── */
+.cinematic-strip { padding:clamp(3rem,6vw,6rem) clamp(1.5rem,5vw,3rem); max-width:1320px; margin:0 auto; }
+.cs-header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:clamp(1.5rem,3vw,2.5rem); flex-wrap:wrap; gap:1rem; }
+.cs-header h2 { font-family:var(--font-serif); font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:300; }
+.cs-header h2 em { color:var(--accent-light); font-style:italic; }
+.cs-header a { font-family:var(--font-cond); font-size:0.8rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); text-decoration:none; transition:color .25s; white-space:nowrap; }
+.cs-header a:hover { color:var(--accent-light); }
+.cs-grid { display:grid; grid-template-columns:1.65fr 1fr; gap:3px; height:420px; }
+.cs-col { display:grid; grid-template-rows:1fr 1fr; gap:3px; }
+.cs-item { position:relative; overflow:hidden; cursor:pointer; }
+.cs-bg { position:absolute; inset:0; background-size:cover; background-position:center; transition:transform .65s cubic-bezier(.25,.1,.25,1); }
+.cs-item:hover .cs-bg { transform:scale(1.06); }
+.cs-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(20,20,20,.88) 0%, rgba(20,20,20,.1) 55%); transition:background .35s; }
+.cs-item:hover .cs-overlay { background:linear-gradient(to top, rgba(20,20,20,.95) 0%, rgba(20,20,20,.25) 55%); }
+.cs-play {
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:52px; height:52px; border-radius:50%;
+  background:rgba(201,166,94,0.2); border:2px solid rgba(201,166,94,0.6);
+  display:flex; align-items:center; justify-content:center;
+  transition:background .3s, transform .3s, border-color .3s;
+}
+.cs-small .cs-play { width:40px; height:40px; }
+.cs-item:hover .cs-play { background:rgba(201,166,94,0.35); border-color:var(--accent); transform:translate(-50%,-50%) scale(1.08); }
+.cs-caption { position:absolute; bottom:0; left:0; right:0; padding:1.25rem 1.5rem; }
+.cs-tag { font-family:var(--font-cond); font-size:.65rem; letter-spacing:.25em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:.3rem; }
+.cs-caption strong { font-family:var(--font-serif); font-size:clamp(1rem,2vw,1.25rem); font-weight:300; color:var(--cream); }
+.cs-small .cs-caption { padding:.9rem 1.1rem; }
+.cs-small .cs-caption strong { font-size:clamp(.85rem,1.5vw,1rem); }
+@media(max-width:768px) {
+  .cs-grid { grid-template-columns:1fr; height:auto; }
+  .cs-large { aspect-ratio:16/9; }
+  .cs-col { grid-template-columns:1fr 1fr; grid-template-rows:auto; }
+  .cs-small { aspect-ratio:4/3; }
+}
+@media(max-width:480px) {
+  .cs-col { grid-template-columns:1fr; }
+  .cs-small { aspect-ratio:16/9; }
+}
 
 /* ── MOBILE OVERRIDES ── */
 @media (max-width: 768px) {
@@ -183,27 +205,28 @@
 <body>
 
 <nav id="navbar">
-  <a href="index.html" class="nav-logo">The <span>Hillside</span> Studios</a>
+  <a href="index.html" class="nav-logo" aria-label="The Hillside Studios">
+    <img src="assets/logo.png" alt="The Hillside Studios" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+    <span class="logo-text" style="display:none">The <span>Hillside</span> Studio</span>
+  </a>
   <ul class="nav-links">
     <li><a href="index.html" class="active" data-i18n="nav_home">Home</a></li>
-    <li><a href="services.html" data-i18n="nav_services">Services</a></li>
-    <li><a href="projects.html" data-i18n="nav_projects">Projects</a></li>
-    <li><a href="portfolio.html">Portfolio</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="pages/services.html" data-i18n="nav_services">Services</a></li>
+    <li><a href="pages/portfolio.html">Portfolio</a></li>
+    <li><a href="pages/about.html">About</a></li>
+    <li><a href="pages/pricing.html">Pricing</a></li>
   </ul>
-  <a href="contact.html" class="nav-cta" data-i18n="nav_book">Book a Session</a>
+  <a href="pages/contact.html" class="nav-cta" data-i18n="nav_book">Book a Session</a>
   <button class="lang-toggle" aria-label="Toggle language">SW</button>
   <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html">Home</a>
-  <a href="services.html">Services</a>
-  <a href="projects.html">Projects</a>
-  <a href="portfolio.html">Portfolio</a>
-  <a href="about.html">About</a>
-  <a href="pricing.html">Pricing</a>
-  <a href="contact.html" class="mob-cta" data-i18n="mob_book">Book a Session</a>
+  <a href="pages/services.html">Services</a>
+  <a href="pages/portfolio.html">Portfolio</a>
+  <a href="pages/about.html">About</a>
+  <a href="pages/pricing.html">Pricing</a>
+  <a href="pages/contact.html" class="mob-cta" data-i18n="mob_book">Book a Session</a>
   <button class="lang-toggle" aria-label="Toggle language">SW</button>
 </div>
 
@@ -211,12 +234,12 @@
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <div class="hero-tag">Photography &amp; Videography · Nairobi, Kenya</div>
-    <h1>Where Light<br>Becomes a <em>Story</em></h1>
+    <div class="hero-tag">Photography &amp; Videography · Ruiru, Kenya</div>
+    <h1>Where Light<br>Becomes <em>Story</em></h1>
     <p class="hero-sub">Elevated visual storytelling for brands, couples, and moments that deserve to be remembered forever.</p>
     <div class="hero-btns">
-      <a href="portfolio.html" class="btn-primary">Explore the Work</a>
-      <a href="contact.html" class="btn-outline">Book a Session</a>
+      <a href="pages/portfolio.html" class="btn-primary">Explore the Work</a>
+      <a href="pages/contact.html" class="btn-outline">Book a Session</a>
     </div>
   </div>
   <div class="scroll-hint"><div class="scroll-line"></div>Scroll</div>
@@ -236,27 +259,27 @@
   <div class="about-text">
     <p class="section-label reveal" style="justify-content:flex-start">Our Story</p>
     <h2 class="reveal reveal-delay-1">Crafted With <em>Intention,</em><br>Told With Heart</h2>
-    <p class="reveal reveal-delay-2" data-i18n="about_p1">The Hillside Studios was born from a single belief — that every image should feel as alive as the moment it captures. Nestled in Ruiru, our studio is a sanctuary for creatives, couples, and brands who want work that moves people.</p>
-    <p class="reveal reveal-delay-2" data-i18n="about_p2">We combine a meticulous eye with a relaxed approach, so you're always at ease in front of the lens.</p>
-    <div style="margin-top:2rem" class="reveal reveal-delay-3"><a href="about.html" class="btn-outline" data-i18n="btn_story">Our Story →</a></div>
-    <div class="signature reveal reveal-delay-3">— The Hillside Studios Team</div>
+    <p class="reveal reveal-delay-2">The Hillside Studio was born from a single belief — that every image should feel as alive as the moment it captures. Nestled in Ruiru, our studio is a sanctuary for creatives, couples, and brands who want work that moves people.</p>
+    <p class="reveal reveal-delay-2">We combine a meticulous eye with a relaxed approach, so you're always at ease in front of the lens.</p>
+    <div style="margin-top:2rem" class="reveal reveal-delay-3"><a href="pages/about.html" class="btn-outline">Our Story →</a></div>
+    <div class="signature reveal reveal-delay-3">— The Hillside Team</div>
   </div>
 </section>
 
 <!-- SERVICES -->
 <section class="services-preview">
   <div class="sp-header">
-    <p class="section-label reveal" data-i18n="offers_label">What We Offer</p>
-    <h2 class="reveal reveal-delay-1" data-i18n="offers_h2">Every Story<br>Deserves a Visual</h2>
-    <p class="reveal reveal-delay-2" data-i18n="offers_p">From weddings to campaigns — we do it all with the same standard of excellence.</p>
+    <p class="section-label reveal">What We Offer</p>
+    <h2 class="reveal reveal-delay-1">Every Story<br>Deserves a Visual</h2>
+    <p class="reveal reveal-delay-2">From weddings to campaigns — we do it all with the same standard of excellence.</p>
   </div>
   <div class="services-grid">
-    <div class="service-card reveal"><div class="sc-bg" style="background-image:url('https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=800&q=80')"></div><div class="sc-overlay"></div><div class="sc-content"><div class="sc-tag">01 — Photography</div><h3>Wedding &amp;<br>Portraits</h3><p class="sc-desc">Timeless images that honour the emotion and beauty of your most important days.</p><a href="services.html" class="sc-link">Learn More</a></div></div>
-    <div class="service-card reveal reveal-delay-1"><div class="sc-bg" style="background-image:url('https://i.pinimg.com/736x/6d/25/ba/6d25ba67856e1cc0c55301c1f0a60b95.jpg')"></div><div class="sc-overlay"></div><div class="sc-content"><div class="sc-tag">02 — Videography</div><h3>Cinematic<br>Films</h3><p class="sc-desc">Wedding films and brand stories crafted with cinematic precision and intention.</p><a href="services.html" class="sc-link">Learn More</a></div></div>
-    <div class="service-card reveal reveal-delay-2"><div class="sc-bg" style="background-image:url('https://i.pinimg.com/736x/b2/ed/a6/b2eda61e56a09ff8ea27f73b38638dcc.jpg')"></div><div class="sc-overlay"></div><div class="sc-content"><div class="sc-tag">03 — Commercial</div><h3>Brand &amp;<br>Product</h3><p class="sc-desc">High-impact visual content for brands that want to command attention.</p><a href="services.html" class="sc-link">Learn More</a></div></div>
-    <div class="service-card reveal reveal-delay-3"><div class="sc-bg" style="background-image:url('https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&q=80')"></div><div class="sc-overlay"></div><div class="sc-content"><div class="sc-tag">04 — Events</div><h3>Corporate &amp;<br>Events</h3><p class="sc-desc">Fast, professional coverage of corporate events, conferences, and launches.</p><a href="services.html" class="sc-link">Learn More</a></div></div>
+    <div class="service-card reveal"><div class="sc-bg" style="background-image:url('https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=800&q=80')"></div><div class="sc-overlay"></div><div class="sc-content"><div class="sc-tag">01 — Photography</div><h3>Wedding &amp;<br>Portraits</h3><p class="sc-desc">Timeless images that honour the emotion and beauty of your most important days.</p><a href="pages/services.html" class="sc-link">Learn More</a></div></div>
+    <div class="service-card reveal reveal-delay-1"><div class="sc-bg" style="background-image:url('https://images.unsplash.com/photo-1579038773867-044c48829161?w=800&q=80')"></div><div class="sc-overlay"></div><div class="sc-content"><div class="sc-tag">02 — Videography</div><h3>Cinematic<br>Films</h3><p class="sc-desc">Wedding films and brand stories crafted with cinematic precision and intention.</p><a href="pages/services.html" class="sc-link">Learn More</a></div></div>
+    <div class="service-card reveal reveal-delay-2"><div class="sc-bg" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80')"></div><div class="sc-overlay"></div><div class="sc-content"><div class="sc-tag">03 — Commercial</div><h3>Brand &amp;<br>Product</h3><p class="sc-desc">High-impact visual content for brands that want to command attention.</p><a href="pages/services.html" class="sc-link">Learn More</a></div></div>
+    <div class="service-card reveal reveal-delay-3"><div class="sc-bg" style="background-image:url('https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&q=80')"></div><div class="sc-overlay"></div><div class="sc-content"><div class="sc-tag">04 — Events</div><h3>Corporate &amp;<br>Events</h3><p class="sc-desc">Fast, professional coverage of corporate events, conferences, and launches.</p><a href="pages/services.html" class="sc-link">Learn More</a></div></div>
   </div>
-  <div class="sp-footer reveal"><a href="services.html" class="btn-outline" data-i18n="btn_services">View All Services</a></div>
+  <div class="sp-footer reveal"><a href="pages/services.html" class="btn-outline">View All Services</a></div>
 </section>
 
 <!-- PORTFOLIO -->
@@ -264,9 +287,9 @@
   <div class="ps-header reveal">
     <div>
       <p class="section-label" style="justify-content:flex-start;margin-bottom:0.4rem">Recent Work</p>
-      <h2 data-i18n="work_h2">Selected Projects</h2>
+      <h2>Selected Projects</h2>
     </div>
-    <a href="portfolio.html" data-i18n="btn_portfolio">View Full Portfolio →</a>
+    <a href="pages/portfolio.html">View Full Portfolio →</a>
   </div>
   <div class="p-scroll">
     <div class="p-item reveal"><div class="p-img" style="background-image:url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80')"></div><div class="p-cap"><span>Wedding — Nairobi 2024</span></div></div>
@@ -277,37 +300,52 @@
   </div>
 </section>
 
-<!-- FEATURED FILMS -->
-<section class="video-strip">
-  <div class="ps-header reveal">
+
+<!-- CINEMATIC FILMS -->
+<section class="cinematic-strip">
+  <div class="cs-header reveal">
     <div>
-      <p class="section-label" style="justify-content:flex-start;margin-bottom:0.4rem">Recent Films</p>
-      <h2>Cinematic Stories</h2>
+      <p class="section-label" style="justify-content:flex-start;margin-bottom:0.4rem">Film Reel</p>
+      <h2>Cinematic <em>Stories</em></h2>
     </div>
-    <a href="portfolio.html#video">View All Films →</a>
+    <a href="pages/services.html">View All Films →</a>
   </div>
-  <div class="v-scroll">
-    <a href="#" class="v-item reveal">
-      <div class="v-thumb" style="background-image:url('https://images.unsplash.com/photo-1500051638674-ff996a0ec29e?w=1600&q=80')"></div>
-      <div class="v-overlay"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-      <div class="v-cap"><h3>Amara & David's Wedding Film</h3><span>Nairobi, 2024</span></div>
-    </a>
-    <a href="#" class="v-item reveal reveal-delay-1">
-      <div class="v-thumb" style="background-image:url('https://images.unsplash.com/photo-1579038773867-044c48829161?w=1600&q=80')"></div>
-      <div class="v-overlay"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-      <div class="v-cap"><h3>Forma Label Brand Film</h3><span>Campaign, 2024</span></div>
-    </a>
-    <a href="#" class="v-item reveal reveal-delay-2">
-      <div class="v-thumb" style="background-image:url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1600&q=80')"></div>
-      <div class="v-overlay"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-      <div class="v-cap"><h3>Zara & Mwangi Engagement</h3><span>Cinematic Short, 2024</span></div>
-    </a>
+  <div class="cs-grid">
+    <div class="cs-item cs-large reveal">
+      <div class="cs-bg" style="background-image:url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200&q=80')"></div>
+      <div class="cs-overlay"></div>
+      <div class="cs-play"><svg viewBox="0 0 24 24" fill="white" width="32" height="32"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="cs-caption">
+        <span class="cs-tag">Wedding Film</span>
+        <strong>Amara &amp; David — Wedding Day</strong>
+      </div>
+    </div>
+    <div class="cs-col">
+      <div class="cs-item cs-small reveal reveal-delay-1">
+        <div class="cs-bg" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80')"></div>
+        <div class="cs-overlay"></div>
+        <div class="cs-play"><svg viewBox="0 0 24 24" fill="white" width="24" height="24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="cs-caption">
+          <span class="cs-tag">Brand Film</span>
+          <strong>Forma Label Brand Story</strong>
+        </div>
+      </div>
+      <div class="cs-item cs-small reveal reveal-delay-2">
+        <div class="cs-bg" style="background-image:url('https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&q=80')"></div>
+        <div class="cs-overlay"></div>
+        <div class="cs-play"><svg viewBox="0 0 24 24" fill="white" width="24" height="24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="cs-caption">
+          <span class="cs-tag">Event Film</span>
+          <strong>TechKE Summit Highlights</strong>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
 <section class="testimonials">
-  <div class="t-header"><p class="section-label reveal" data-i18n="words_label">Kind Words</p><h2 class="reveal reveal-delay-1" data-i18n="words_h2">What Clients Say</h2></div>
+  <div class="t-header"><p class="section-label reveal">Kind Words</p><h2 class="reveal reveal-delay-1">What Clients Say</h2></div>
   <div class="t-track">
     <div class="t-item reveal"><p class="t-quote">"Working with The Hillside Studio was the best decision we made for our wedding. The photos are breathtaking — they captured feelings we didn't even know we were feeling."</p><div class="t-author">Amara &amp; David Ochieng</div><div class="t-role">Wedding Photography — Nairobi, 2024</div></div>
     <div class="t-item reveal reveal-delay-1"><p class="t-quote">"The brand campaign they shot for us generated 3× our usual engagement. They understood our identity immediately and delivered work that was bold, clean, and unmistakably us."</p><div class="t-author">Zara Mwangi</div><div class="t-role">Creative Director, Forma Label — 2024</div></div>
@@ -319,19 +357,19 @@
 <section class="cta-banner">
   <div class="cta-bg"></div>
   <div class="cta-content">
-    <p class="section-label reveal" data-i18n="ready_label">Ready?</p>
-    <h2 class="reveal reveal-delay-1">Let's Create<br>Something <em data-i18n="ready_h2em">Extraordinary</em></h2>
-    <p class="reveal reveal-delay-2" data-i18n="ready_p">Fill in the form and we'll respond within 24 hours. Or just chat with Hilda — she knows everything.</p>
+    <p class="section-label reveal">Ready?</p>
+    <h2 class="reveal reveal-delay-1">Let's Create<br>Something <em>Extraordinary</em></h2>
+    <p class="reveal reveal-delay-2">Fill in the form and we'll respond within 24 hours. Or just chat with Hilda — she knows everything.</p>
     <div class="cta-btns reveal reveal-delay-3">
-      <a href="contact.html" class="btn-primary" data-i18n="btn_book">Book a Session</a>
-      <a href="projects.html" class="btn-outline">View Projects</a>
+      <a href="pages/contact.html" class="btn-primary">Book a Session</a>
+      <a href="pages/pricing.html" class="btn-outline">View Pricing</a>
     </div>
   </div>
 </section>
 
 <footer class="site-footer">
-  <div class="footer-logo">The Hillside Studios</div>
-  <div class="footer-copy" data-i18n="footer_copy">© 2026 The Hillside Studios · Ruiru, Kenya</div>
+  <div class="footer-logo" style="font-family:'Cinzel',serif;letter-spacing:0.15em;color:var(--accent-light);opacity:1">THE HILLSIDE <span style="color:var(--accent)">STUDIOS</span></div>
+  <div class="footer-copy">© 2025 The Hillside Studio · Ruiru, Kenya</div>
   <div class="footer-social"><a href="#">Instagram</a><a href="#">Behance</a><a href="#">YouTube</a></div>
 </footer>
 
@@ -349,7 +387,7 @@
   <div class="chatbot-header">
     <div class="chat-avatar">H</div>
     <div class="chat-header-info">
-      <div class="chat-header-name">Hilda — Studios Assistant</div>
+      <div class="chat-header-name">Hilda — Studio Assistant</div>
       <div class="chat-header-status">Online now</div>
     </div>
     <button class="chatbot-close" id="chatClose">✕</button>
