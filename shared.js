@@ -7,6 +7,11 @@
    • Scroll Reveal
 ══════════════════════════════════════════════ */
 
+// ⚠️ SECURITY WARNING: Your API key is exposed on the frontend!
+// For production, use a serverless function or a backend proxy to protect your key.
+// Replace 'YOUR_ANTHROPIC_API_KEY' with your actual key.
+const ANTHROPIC_API_KEY = 'YOUR_ANTHROPIC_API_KEY';
+
 // ── TRANSLATIONS ──────────────────────────────
 const TRANSLATIONS = {
   en: {
@@ -50,7 +55,13 @@ const TRANSLATIONS = {
     ready_h2em:    'Extraordinary',
     ready_p:       "Fill in the form and we'll respond within 24 hours. Or just chat with Hilda — she knows everything.",
     footer_copy:   '© 2026 The Hillside Studios · , Kenya',
-    chat_greeting: "Hello! I'm Hilda 👋 How can I help you today? Can I tell you more  about our Amaizing 🥰 services, pricing, or help you book a session.",
+    // Page-specific chatbot greetings
+    chat_greet_default:  "Hello! I'm Hilda 👋 How can I help you today? I can answer questions about our services, pricing, or help you book a session.",
+    chat_greet_services: "Hi! I can tell you more about any of our services or help you book. What are you looking for?",
+    chat_greet_about:    "Want to know more about our team or the studio's story? Ask me anything!",
+    chat_greet_portfolio:"See something you love? I can help you book a similar session or answer questions about our work.",
+    chat_greet_pricing:  "Questions about our pricing? I can help you find the right package for your budget and needs.",
+    chat_greet_contact:  "Need help with the form? I can help you pick the right package or answer any question before you send! 😊",
     chat_ph:       'Ask Hilda anything…',
     chat_status:   'Online now',
     sug1: 'Wedding packages', sug2: 'Pricing info', sug3: 'How to book', sug4: 'Turnaround time',
@@ -98,7 +109,13 @@ const TRANSLATIONS = {
     ready_h2em:    'Cha Kipekee',
     ready_p:       "Jaza fomu na tutakujibu ndani ya masaa 24. Au zungumza na Hilda — anajua kila kitu.",
     footer_copy:   '© 2026 The Hillside Studios · Nairobi, Kenya',
-    chat_greeting: "Habari! Mimi ni Hilda 👋 Naweza kukusaidia leo? Ninaweza kujibu maswali kuhusu huduma zetu, bei, au kukusaidia kupanga kikao.",
+    // Page-specific chatbot greetings (Swahili)
+    chat_greet_default:  "Habari! Mimi ni Hilda 👋 Naweza kukusaidiaje leo? Ninaweza kujibu maswali kuhusu huduma, bei, au kukusaidia kupanga kikao.",
+    chat_greet_services: "Habari! Naweza kukupa maelezo zaidi kuhusu huduma zetu. Unatafuta nini hasa?",
+    chat_greet_about:    "Unataka kujua zaidi kuhusu timu yetu au hadithi ya studio? Niulize chochote!",
+    chat_greet_portfolio:"Umeona kitu unachopenda? Naweza kukusaidia kupanga kikao kama hicho au kujibu maswali kuhusu kazi zetu.",
+    chat_greet_pricing:  "Maswali kuhusu bei? Naweza kukusaidia kupata kifurushi kinachofaa bajeti na mahitaji yako.",
+    chat_greet_contact:  "Unahitaji msaada na fomu? Naweza kukusaidia kuchagua kifurushi sahihi au kujibu swali lolote kabla ya kutuma! 😊",
     chat_ph:       'Uliza Hilda chochote…',
     chat_status:   'Mtandaoni sasa',
     sug1: 'Vifurushi vya harusi', sug2: 'Maelezo ya bei', sug3: 'Jinsi ya kupanga', sug4: 'Muda wa uwasilishaji',
@@ -234,6 +251,18 @@ STUDIO HOURS: Mon–Fri 8am–6pm · Sat 9am–4pm · Sun by appointment.
 In Swahili responses, be warm and use natural Kenyan Swahili. Keep responses under 90 words unless the question genuinely requires more.`;
 
 function initChatbot() {
+  // Get page-specific greeting
+  function getGreeting(lang) {
+    const T = TRANSLATIONS[lang];
+    const path = window.location.pathname.split('/').pop();
+    if (path.startsWith('services')) return T.chat_greet_services;
+    if (path.startsWith('about')) return T.chat_greet_about;
+    if (path.startsWith('portfolio') || path.startsWith('projects')) return T.chat_greet_portfolio;
+    if (path.startsWith('pricing')) return T.chat_greet_pricing;
+    if (path.startsWith('contact')) return T.chat_greet_contact;
+    return T.chat_greet_default;
+  }
+
   const bubble  = document.getElementById('chatBubble');
   const win     = document.getElementById('chatWindow');
   const closeBtn= document.getElementById('chatClose');
@@ -246,6 +275,10 @@ function initChatbot() {
 
   let history = [];
   let isOpen  = false;
+
+  // Set initial greeting message
+  const initialGreeting = getGreeting(currentLang);
+  if (msgs.querySelector('.msg.bot')) msgs.querySelector('.msg.bot').textContent = initialGreeting;
 
   // Show notification dot after 5s
   setTimeout(() => { if (!isOpen && notif) notif.style.display = 'block'; }, 5000);
@@ -299,20 +332,23 @@ function initChatbot() {
     history.push({ role: 'user', content: text });
     const typing = addTyping();
     try {
-      const res = await fetch('https://api.anthropic.com/v1/messages', {
+      const res = await fetch('https://api.anthropic.com/v1/messages', { // Direct API call
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': ANTHROPIC_API_KEY, // API key in header
+          'anthropic-version': '2023-06-01'
+        },
         body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
+          model: 'claude-3-sonnet-20240229', // Using a widely available model
           max_tokens: 400,
           system: SYSTEM_PROMPT,
           messages: history
         })
       });
       const data = await res.json();
-      const reply = data.content?.[0]?.text || (currentLang === 'sw'
-        ? 'Samahani, kuna tatizo. Tafadhali wasiliana nasi: hello@hillsidestudios.co.ke'
-        : "Sorry, I'm having trouble connecting. Please email hello@hillsidestudios.co.ke");
+      const reply = data.error ? `API Error: ${data.error.message}`
+        : data.content?.[0]?.text || 'Sorry, I received an empty response.';
       typing.remove();
       addMsg(reply, 'bot');
       history.push({ role: 'assistant', content: reply });
@@ -356,4 +392,19 @@ document.addEventListener('DOMContentLoaded', () => {
   initChatbot();
   initWhatsApp();
   initOutsideTap();
+
+  // Auto-scroller for videos
+  document.querySelectorAll('.v-scroll').forEach(scroller => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const scrollerInner = scroller.querySelector('.v-scroll-inner');
+    if (!scrollerInner) return;
+    const items = Array.from(scrollerInner.children);
+    items.forEach(item => {
+      const clone = item.cloneNode(true);
+      clone.setAttribute('aria-hidden', true);
+      scrollerInner.appendChild(clone);
+    });
+    scrollerInner.addEventListener('touchstart', () => scrollerInner.style.animationPlayState = 'paused', { passive: true });
+    scrollerInner.addEventListener('touchend', () => scrollerInner.style.animationPlayState = 'running', { passive: true });
+  });
 });
