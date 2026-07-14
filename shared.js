@@ -7,11 +7,6 @@
    • Scroll Reveal
 ══════════════════════════════════════════════ */
 
-// ⚠️ SECURITY WARNING: Your API key is exposed on the frontend!
-// For production, use a serverless function or a backend proxy to protect your key.
-// Replace 'YOUR_ANTHROPIC_API_KEY' with your actual key.
-const ANTHROPIC_API_KEY = 'YOUR_ANTHROPIC_API_KEY';
-
 // ── TRANSLATIONS ──────────────────────────────
 const TRANSLATIONS = {
   en: {
@@ -202,54 +197,6 @@ function initNav(solidNav) {
   applyTranslations(currentLang);
 }
 
-// ── SCROLL REVEAL ─────────────────────────────
-function initReveal() {
-  const els = document.querySelectorAll('.reveal');
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-    });
-  }, { threshold: 0.1 });
-  els.forEach(el => obs.observe(el));
-}
-
-// ── CHATBOT (Hilda) ──────────────────────────
-const SYSTEM_PROMPT = `You are Hilda, the warm and knowledgeable studio assistant for The Hillside Studio — a premium photography and videography studio based in Ruiru, Kiambu County, Kenya. You speak both English and Swahili. Detect the language the client writes in and always reply in the same language.
-
-Your role is to help clients with services, pricing, booking, and availability. Be friendly, concise, professional. Short paragraphs only — no bullet points. Always end with a helpful next step.
-
-SERVICES:
-- Wedding & Portrait Photography
-- Cinematic Videography (highlight films, full ceremony, brand films)
-- Brand & Commercial Photography (campaigns, lookbooks, product, e-commerce)
-- Corporate & Event Coverage (conferences, launches, gala dinners)
-- Drone aerial footage (add-on)
-
-PHOTOGRAPHY PACKAGES:
-- Essential: KES 35,000 — portraits/headshots, 3 hrs, 60 edited images, 14-day delivery
-- Signature: KES 75,000 — full day 8hrs, 2 photographers, 300+ images, engagement session, 21-day delivery
-- Bespoke: Custom — multi-day, destination, unlimited images
-
-VIDEOGRAPHY PACKAGES:
-- Short Film: KES 45,000 — 4hrs, 2–3 min highlight film, 1080p, 21-day delivery
-- Cinematic: KES 85,000 — full day, 5–7 min film, 4K + drone, colour grade, 35-day delivery
-- Production: Custom — brand films, documentaries, multi-day
-
-PHOTO + VIDEO BUNDLES:
-- Classic Bundle: KES 110,000
-- Premium Bundle: KES 145,000 (full day, cinematic film, 300+ images, drone, engagement session)
-- Ultimate: Custom
-
-ADD-ONS: Drone KES 15,000 · Rush delivery KES 8,000 · Printed album KES 18,000 · Extra hour KES 8,000 · Second shooter KES 12,000 · Social reels KES 10,000
-
-BOOKING: 30% deposit to secure a date. Balance due 7 days before. Payment plans for packages above KES 75,000.
-TURNAROUND: Photos 14–21 days. Films 21–35 days. Rush available.
-CONTACT: hello@hillsidestudio.co.ke · +254 713775 528 · WhatsApp available.
-LOCATION: Nairobi, CBD. Travel across Kenya; international by arrangement.
-STUDIO HOURS: Mon–Fri 8am–6pm · Sat 9am–4pm · Sun by appointment.
-
-In Swahili responses, be warm and use natural Kenyan Swahili. Keep responses under 90 words unless the question genuinely requires more.`;
-
 function initChatbot() {
   // Get page-specific greeting
   function getGreeting(lang) {
@@ -261,6 +208,50 @@ function initChatbot() {
     if (path.startsWith('pricing')) return T.chat_greet_pricing;
     if (path.startsWith('contact')) return T.chat_greet_contact;
     return T.chat_greet_default;
+  }
+
+  // New Keyword-based response engine
+  const RESPONSES = {
+    en: {
+      default: "I'm sorry, I'm not sure how to answer that. I can help with questions about our services, pricing, and booking process. How can I assist?",
+      greeting: "Hello there! How can I help you today?",
+      pricing: "We have packages for every need! Our popular 'Signature' wedding photography is KES 75,000. For a full breakdown of all our packages, please <a href='pricing.html' style='color: var(--accent-light);'>check out our pricing page</a>.",
+      services: "We offer Wedding & Portrait Photography, Cinematic Videography, Brand & Commercial shoots, and Event Coverage. Is there a specific service you're interested in?",
+      wedding: "For weddings, our most popular photo package is the 'Signature' at KES 75,000. For video, it's the 'Cinematic' film at KES 85,000. We also have great value bundles combining both! Would you like to know more?",
+      booking: "Booking is simple! We require a 30% deposit to secure your date. The best way to start is by filling out the form on our contact page. I can guide you there if you like!",
+      contact: "Of course! You can email us at hello@hillsidestudio.co.ke or call/WhatsApp at +254 713 775 528. We're located at Kayole, Bee-center in Nairobi.",
+      turnaround: "Our standard turnaround is 14–21 days for photos and 21–35 days for films. We also offer a 'Rush Delivery' add-on if you need your content sooner!",
+      payment: "We accept M-Pesa, bank transfers, and card payments. For packages over KES 75,000, we can also arrange a payment plan. We require a 30% deposit to secure your booking.",
+      thanks: "You're very welcome! Is there anything else I can help you with?",
+    },
+    sw: {
+      default: "Samahani, sielewi swali lako. Ninaweza kukusaidia na maswali kuhusu huduma, bei, na jinsi ya kupanga kikao. Nikusaidieje?",
+      greeting: "Habari! Nikusaidieje leo?",
+      pricing: "Tuna vifurushi mbalimbali! Kifurushi chetu maarufu cha harusi 'Signature' ni KES 75,000, na filamu ya 'Cinematic' ni KES 85,000. Tuna pia vifurushi vya pamoja! Unaweza kuona maelezo yote kwenye ukurasa wetu wa bei.",
+      services: "Tunatoa huduma za Upigaji Picha za Harusi na Picha za Kawaida, Filamu za Sinema, Picha za Biashara, na Matukio. Je, kuna huduma maalum unayopenda?",
+      wedding: "Kwa harusi, kifurushi chetu cha picha maarufu ni 'Signature' kwa KES 75,000. Kwa video, ni filamu ya 'Cinematic' kwa KES 85,000. Pia tuna vifurushi vya pamoja vinavyopunguza gharama! Ungependa maelezo zaidi?",
+      booking: "Ni rahisi kupanga kikao! Tunahitaji malipo ya awali ya 30% ili kuhifadhi tarehe yako. Njia bora ya kuanza ni kujaza fomu kwenye ukurasa wetu wa mawasiliano.",
+      contact: "Bila shaka! Unaweza kututumia barua pepe kwa hello@hillsidestudio.co.ke au piga simu/WhatsApp kwa +254 713 775 528. Tuko Kayole, Bee-center, Nairobi.",
+      turnaround: "Muda wetu wa kawaida wa kuwasilisha kazi ni siku 14–21 kwa picha na siku 21–35 kwa filamu. Pia tunatoa huduma ya 'Rush Delivery' ikiwa unahitaji kazi yako mapema!",
+      payment: "Tunakubali malipo kwa M-Pesa, uhamisho wa benki, na kadi. Kwa vifurushi vya zaidi ya KES 75,000, tunaweza kupanga mpango wa malipo. Tunahitaji malipo ya awali ya 30% ili kuhifadhi nafasi yako.",
+      thanks: "Karibu sana! Kuna jambo lingine naweza kukusaidia nalo?",
+    }
+  };
+
+  function getBotResponse(text) {
+    const lang = currentLang;
+    const r = RESPONSES[lang];
+    const t = text.toLowerCase();
+    if (t.match(/hello|hi|habari/)) return r.greeting;
+    if (t.match(/price|pricing|cost|how much|bei|gharama/)) return r.pricing;
+    if (t.match(/wedding|harusi/)) return r.wedding;
+    if (t.match(/book|booking|panga/)) return r.booking;
+    if (t.match(/service|offer|huduma/)) return r.services;
+    if (t.match(/contact|phone|email|location|wapi/)) return r.contact;
+    if (t.match(/turnaround|how long|how fast|muda gani/)) return r.turnaround;
+    if (t.match(/payment|pay|deposit|malipo/)) return r.payment;
+    if (t.match(/thank|asante/)) return r.thanks;
+    return r.default;
   }
 
   const bubble  = document.getElementById('chatBubble');
@@ -313,7 +304,7 @@ function initChatbot() {
     if (sugBox) sugBox.style.display = 'none';
     const div = document.createElement('div');
     div.className = `msg ${role}`;
-    div.textContent = text;
+    div.innerHTML = text; // Use innerHTML to render links
     msgs.appendChild(div);
     msgs.scrollTop = msgs.scrollHeight;
   }
@@ -327,42 +318,28 @@ function initChatbot() {
     return div;
   }
 
-  async function sendMsg(text) {
+  function sendMsg(text) {
     addMsg(text, 'user');
-    history.push({ role: 'user', content: text });
     const typing = addTyping();
-    try {
-      const res = await fetch('https://api.anthropic.com/v1/messages', { // Direct API call
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-api-key': ANTHROPIC_API_KEY, // API key in header
-          'anthropic-version': '2023-06-01'
-        },
-        body: JSON.stringify({
-          model: 'claude-3-sonnet-20240229', // Using a widely available model
-          max_tokens: 400,
-          system: SYSTEM_PROMPT,
-          messages: history
-        })
-      });
-      const data = await res.json();
-      const reply = data.error ? `API Error: ${data.error.message}`
-        : data.content?.[0]?.text || 'Sorry, I received an empty response.';
+
+    // Simulate a short delay for a more natural feel
+    setTimeout(() => {
+      const reply = getBotResponse(text);
       typing.remove();
       addMsg(reply, 'bot');
-      history.push({ role: 'assistant', content: reply });
-    } catch {
-      typing.remove();
-      addMsg(currentLang === 'sw'
-        ? 'Samahani, kuna tatizo la muunganiko. Piga simu: +254 713 775 528'
-        : 'Connection issue — please call +254 713 775 528 or WhatsApp us.',
-        'bot');
-    }
+    }, 700 + Math.random() * 400);
   }
 }
 
-// ── WHATSAPP BUTTON ───────────────────────────
+// ── SCROLL REVEAL ─────────────────────────────
+function initReveal() {
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  els.forEach(el => obs.observe(el));
+}
+
 function initWhatsApp() {
   const wa = document.getElementById('waBtn');
   if (!wa) return;
