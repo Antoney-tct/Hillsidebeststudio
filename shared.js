@@ -268,11 +268,31 @@ function initChatbot() {
   let isOpen  = false;
 
   // Set initial greeting message
-  const initialGreeting = getGreeting(currentLang);
-  if (msgs.querySelector('.msg.bot')) msgs.querySelector('.msg.bot').textContent = initialGreeting;
+  const initialGreeting = getGreeting(currentLang); // Use innerHTML to render links
+  if (msgs.querySelector('.msg.bot')) msgs.querySelector('.msg.bot').innerHTML = initialGreeting;
 
   // Show notification dot after 5s
   setTimeout(() => { if (!isOpen && notif) notif.style.display = 'block'; }, 5000);
+
+  // Proactively open on the pricing page after a delay
+  const currentPage = window.location.pathname.split('/').pop();
+  if (currentPage.startsWith('pricing')) {
+    setTimeout(() => {
+      if (!isOpen) { // Only open if user hasn't already
+        bubble.click();
+      }
+    }, 2500); // 2.5-second delay
+
+    // Add a one-time event listener to close the chat on scroll
+    const handlePricingScroll = () => {
+      if (isOpen && window.scrollY > 150) { // If user scrolls down 150px
+        win.classList.remove('open');
+        isOpen = false;
+        window.removeEventListener('scroll', handlePricingScroll); // Clean up listener
+      }
+    };
+    window.addEventListener('scroll', handlePricingScroll);
+  }
 
   bubble.addEventListener('click', () => {
     isOpen = !isOpen;
