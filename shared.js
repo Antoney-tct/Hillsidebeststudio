@@ -217,9 +217,9 @@ function initChatbot() {
       greeting: "Hello there! How can I help you today?",
       pricing: "We have packages for every need! Our popular 'Signature' wedding photography is KES 75,000. For a full breakdown of all our packages, please <a href='pricing.html' style='color: var(--accent-light);'>check out our pricing page</a>.",
       services: "We offer Wedding & Portrait Photography, Cinematic Videography, Brand & Commercial shoots, and Event Coverage. Is there a specific service you're interested in?",
-      wedding: "For weddings, our most popular photo package is the 'Signature' at KES 75,000. For video, it's the 'Cinematic' film at KES 85,000. We also have great value bundles combining both! Would you like to know more?",
+      wedding: "For weddings, our most popular photo package is the 'Signature' at KES 75,000. You can <a href='pricing.html' style='color: var(--accent-light);'>see all packages here</a> or <a href='contact.html' style='color: var(--accent-light);'>contact us</a> to get a custom quote!",
       booking: "Booking is simple! We require a 30% deposit to secure your date. The best way to start is by filling out the form on our contact page. I can guide you there if you like!",
-      contact: "Of course! You can email us at hello@hillsidestudio.co.ke or call/WhatsApp at +254 713 775 528. We're located at Kayole, Bee-center in Nairobi.",
+      contact: "Of course! You can email us at <a href='mailto:hello@hillsidestudio.co.ke'>hello@hillsidestudio.co.ke</a><button class='copy-btn' data-copy='hello@hillsidestudio.co.ke'>Copy</button> or call/WhatsApp at +254 713 775 528.",
       turnaround: "Our standard turnaround is 14–21 days for photos and 21–35 days for films. We also offer a 'Rush Delivery' add-on if you need your content sooner!",
       payment: "We accept M-Pesa, bank transfers, and card payments. For packages over KES 75,000, we can also arrange a payment plan. We require a 30% deposit to secure your booking.",
       thanks: "You're very welcome! Is there anything else I can help you with?",
@@ -229,14 +229,28 @@ function initChatbot() {
       greeting: "Habari! Nikusaidieje leo?",
       pricing: "Tuna vifurushi mbalimbali! Kifurushi chetu maarufu cha harusi 'Signature' ni KES 75,000, na filamu ya 'Cinematic' ni KES 85,000. Tuna pia vifurushi vya pamoja! Unaweza kuona maelezo yote kwenye ukurasa wetu wa bei.",
       services: "Tunatoa huduma za Upigaji Picha za Harusi na Picha za Kawaida, Filamu za Sinema, Picha za Biashara, na Matukio. Je, kuna huduma maalum unayopenda?",
-      wedding: "Kwa harusi, kifurushi chetu cha picha maarufu ni 'Signature' kwa KES 75,000. Kwa video, ni filamu ya 'Cinematic' kwa KES 85,000. Pia tuna vifurushi vya pamoja vinavyopunguza gharama! Ungependa maelezo zaidi?",
+      wedding: "Kwa harusi, kifurushi chetu maarufu cha picha ni 'Signature' kwa KES 75,000. Unaweza <a href='pricing.html' style='color: var(--accent-light);'>kuona vifurushi vyote hapa</a> au <a href='contact.html' style='color: var(--accent-light);'>wasiliana nasi</a> kupata bei maalum!",
       booking: "Ni rahisi kupanga kikao! Tunahitaji malipo ya awali ya 30% ili kuhifadhi tarehe yako. Njia bora ya kuanza ni kujaza fomu kwenye ukurasa wetu wa mawasiliano.",
-      contact: "Bila shaka! Unaweza kututumia barua pepe kwa hello@hillsidestudio.co.ke au piga simu/WhatsApp kwa +254 713 775 528. Tuko Kayole, Bee-center, Nairobi.",
+      contact: "Bila shaka! Unaweza kututumia barua pepe kwa <a href='mailto:hello@hillsidestudio.co.ke'>hello@hillsidestudio.co.ke</a><button class='copy-btn' data-copy='hello@hillsidestudio.co.ke'>Nakili</button> au piga simu/WhatsApp kwa +254 713 775 528.",
       turnaround: "Muda wetu wa kawaida wa kuwasilisha kazi ni siku 14–21 kwa picha na siku 21–35 kwa filamu. Pia tunatoa huduma ya 'Rush Delivery' ikiwa unahitaji kazi yako mapema!",
       payment: "Tunakubali malipo kwa M-Pesa, uhamisho wa benki, na kadi. Kwa vifurushi vya zaidi ya KES 75,000, tunaweza kupanga mpango wa malipo. Tunahitaji malipo ya awali ya 30% ili kuhifadhi nafasi yako.",
       thanks: "Karibu sana! Kuna jambo lingine naweza kukusaidia nalo?",
     }
   };
+
+  const PACKAGES = [
+    { name: 'Essential Photography', name_sw: 'Picha (Essential)', price: 35000, image: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=400&q=80' },
+    { name: 'Short Film', name_sw: 'Filamu Fupi', price: 45000, image: 'https://images.unsplash.com/photo-1500051638674-ff996a0ec29e?w=400&q=80' },
+    { name: 'Signature Photography', name_sw: 'Picha (Signature)', price: 75000, image: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&q=80' },
+    { name: 'Cinematic Videography', name_sw: 'Filamu (Cinematic)', price: 85000, image: 'https://images.unsplash.com/photo-1579038773867-044c48829161?w=400&q=80' },
+    { name: 'Commercial Campaign', name_sw: 'Kampeni ya Kibiashara', price: 95000, image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80' },
+    { name: 'Classic Bundle', name_sw: 'Kifurushi (Classic)', price: 110000, image: 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=400&q=80' },
+    { name: 'Premium Bundle', name_sw: 'Kifurushi (Premium)', price: 145000, image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=400&q=80' },
+  ];
+
+  const linkToPricing = (lang) => lang === 'sw'
+    ? "<a href='pricing.html' style='color: var(--accent-light);'>tazama ukurasa wetu wa bei</a>"
+    : "<a href='pricing.html' style='color: var(--accent-light);'>check out our pricing page</a>";
 
   function getBotResponse(text) {
     const lang = currentLang;
@@ -251,6 +265,35 @@ function initChatbot() {
     if (t.match(/turnaround|how long|how fast|muda gani/)) return r.turnaround;
     if (t.match(/payment|pay|deposit|malipo/)) return r.payment;
     if (t.match(/thank|asante/)) return r.thanks;
+
+    // Budget detection logic
+    const budgetMatch = t.match(/(\d[\d,.]*k?)/);
+    if (budgetMatch && budgetMatch[1]) {
+        let budgetStr = budgetMatch[1].replace(/,/g, '');
+        let budget = 0;
+        if (budgetStr.endsWith('k')) {
+            budget = parseFloat(budgetStr) * 1000;
+        } else {
+            budget = parseFloat(budgetStr);
+        }
+
+        if (budget > 30000) { // Only trigger for reasonable budget amounts
+            const affordable = PACKAGES.filter(p => p.price <= budget).sort((a, b) => b.price - a.price);
+            if (affordable.length > 0) {
+                const bestPackage = affordable[0];
+                const pkgName = lang === 'sw' ? bestPackage.name_sw : bestPackage.name;
+                const responseText = lang === 'sw'
+                    ? `Kwa bajeti ya KES ${budget.toLocaleString()}, kifurushi cha '${pkgName}' kwa KES ${bestPackage.price.toLocaleString()} kinaweza kukufaa! Unaweza ${linkToPricing(lang)} kwa maelezo zaidi.`
+                    : `With a budget of KES ${budget.toLocaleString()}, our '${pkgName}' package at KES ${bestPackage.price.toLocaleString()} would be a great fit! You can ${linkToPricing(lang)} for more details.`;
+                if (lang === 'sw') {
+                    return `<img src="${bestPackage.image}" class="msg-img" alt="${pkgName}"><p>${responseText}</p>`;                }                return `<img src="${bestPackage.image}" class="msg-img" alt="${pkgName}"><p>${responseText}</p>`;
+            } else {
+                 if (lang === 'sw') return `Asante kwa kushiriki bajeti yako. Kifurushi chetu cha bei nafuu huanza KES 35,000. Tafadhali ${linkToPricing(lang)} kuona chaguo zote.`;
+                 return `Thanks for sharing your budget. Our packages start at KES 35,000. Please ${linkToPricing(lang)} to see all the options.`;
+            }
+        }
+    }
+
     return r.default;
   }
 
@@ -325,6 +368,39 @@ function initChatbot() {
     const div = document.createElement('div');
     div.className = `msg ${role}`;
     div.innerHTML = text; // Use innerHTML to render links
+
+    // Add copy-to-clipboard functionality for any copy buttons in the message
+    const copyBtn = div.querySelector('.copy-btn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        if (copyBtn.classList.contains('copied')) return; // Prevent multiple clicks
+        const originalText = copyBtn.textContent;
+        navigator.clipboard.writeText(copyBtn.dataset.copy).then(() => {
+          copyBtn.textContent = 'Copied!';
+          copyBtn.classList.add('copied');
+          // Reset the button state after the animation finishes
+          setTimeout(() => { copyBtn.textContent = originalText; copyBtn.classList.remove('copied'); }, 2000);
+        }).catch(err => {
+          console.error('Failed to copy text: ', err);
+          copyBtn.textContent = 'Error';
+        });
+      });
+    }
+
+    // Add lightbox functionality for chatbot images
+    const msgImg = div.querySelector('.msg-img');
+    if (msgImg) {
+      msgImg.addEventListener('click', () => {
+        // Use the global lightbox function
+        openLightbox({
+          src: msgImg.src,
+          caption: msgImg.alt,
+          tag: 'Package Suggestion'
+        });
+      });
+    }
+
+
     msgs.appendChild(div);
     msgs.scrollTop = msgs.scrollHeight;
   }
@@ -372,6 +448,41 @@ function initWhatsApp() {
   });
 }
 
+// ── LIGHTBOX (Global) ─────────────────────────
+let lightbox, lbImg, lbCaption, lbTag, lbClose, lbPrev, lbNext;
+
+function initLightbox() {
+  lightbox = document.getElementById('lightbox');
+  if (!lightbox) return;
+
+  lbImg = document.getElementById('lbImg');
+  lbCaption = document.getElementById('lbCaption');
+  lbTag = document.getElementById('lbTag');
+  lbClose = document.getElementById('lbClose');
+  lbPrev = document.getElementById('lbPrev');
+  lbNext = document.getElementById('lbNext');
+
+  lbClose.addEventListener('click', () => lightbox.classList.remove('open'));
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('open'); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
+}
+
+function openLightbox({ src, caption, tag, showNav = false }) {
+  if (!lightbox) return;
+
+  lbImg.src = src;
+  lbCaption.textContent = caption || '';
+  lbTag.textContent = tag || '';
+
+  // Hide nav buttons if not part of a gallery
+  if (lbPrev && lbNext) {
+    lbPrev.style.display = showNav ? 'block' : 'none';
+    lbNext.style.display = showNav ? 'block' : 'none';
+  }
+
+  lightbox.classList.add('open');
+}
+
 // ── CLOSE CHATBOT ON OUTSIDE TAP ─────────────
 function initOutsideTap() {
   document.addEventListener('click', e => {
@@ -387,6 +498,7 @@ function initOutsideTap() {
 document.addEventListener('DOMContentLoaded', () => {
   initReveal();
   initChatbot();
+  initLightbox();
   initWhatsApp();
   initOutsideTap();
 

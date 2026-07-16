@@ -18,18 +18,6 @@
 .masonry-item:hover .overlay{opacity:1}
 .overlay-text span{font-family:var(--font-cond);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-light);display:block}
 .overlay-text strong{font-family:var(--font-serif);font-size:1.1rem;font-weight:300;color:var(--cream)}
-/* Lightbox */
-.lightbox{position:fixed;inset:0;z-index:1000;background:rgba(28,26,23,.97);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
-.lightbox.open{opacity:1;pointer-events:all}
-.lb-img{max-width:90vw;max-height:85vh;object-fit:contain;transition:transform .3s}
-.lb-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:var(--mid);font-size:1.8rem;cursor:pointer;transition:color .2s;line-height:1}
-.lb-close:hover{color:var(--cream)}
-.lb-caption{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);text-align:center}
-.lb-caption span{font-family:var(--font-cond);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
-.lb-caption p{font-family:var(--font-serif);font-size:1.1rem;font-style:italic;color:rgba(245,240,232,.7);margin-top:.25rem}
-.lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(245,240,232,.4);font-size:2.5rem;cursor:pointer;transition:color .2s;padding:.5rem}
-.lb-nav:hover{color:var(--accent)}
-.lb-prev{left:1rem}.lb-next{right:1rem}
 @media(max-width:900px){.masonry{columns:2;padding:0 1.5rem 4rem}}
 @media(max-width:580px){.masonry{columns:1}}
 /* ── GLOBAL MOBILE TOUCH FIX ── */
@@ -149,22 +137,43 @@ document.querySelectorAll('.filter-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{
     document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
-    buildGallery(btn.dataset.filter);
+    buildGallery(btn.dataset.filter, true); // Pass true to show nav
   });
 });
-function openLightbox(idx){
-  current = idx;
-  const lb = document.getElementById('lightbox');
-  document.getElementById('lbImg').src = filtered[idx].url;
-  document.getElementById('lbTag').textContent = filtered[idx].tag;
-  document.getElementById('lbCaption').textContent = filtered[idx].cap;
-  lb.classList.add('open');
+
+let current = 0, filtered = [...items];
+
+function buildGallery(filter, showNav){
+  const g = document.getElementById('gallery');
+  filtered = filter === 'all' ? [...items] : items.filter(i=>i.cat===filter);
+  g.innerHTML = filtered.map((item,i)=>`
+    <div class="masonry-item reveal" data-idx="${i}">
+      <img src="${item.url}" alt="${item.cap}" loading="lazy"/>
+      <div class="overlay"><div class="overlay-text"><span>${item.tag}</span><strong>${item.cap}</strong></div></div>
+    </div>`).join('');
+  g.querySelectorAll('.masonry-item').forEach(el=>{
+    el.addEventListener('click',()=>{
+      current = +el.dataset.idx;
+      openLightbox({
+        src: filtered[current].url,
+        caption: filtered[current].cap,
+        tag: filtered[current].tag,
+        showNav: true
+      });
+    });
+  });
+  setTimeout(()=>{ document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible')); },80);
 }
-document.getElementById('lbClose').addEventListener('click',()=>document.getElementById('lightbox').classList.remove('open'));
-document.getElementById('lbPrev').addEventListener('click',()=>openLightbox((current-1+filtered.length)%filtered.length));
-document.getElementById('lbNext').addEventListener('click',()=>openLightbox((current+1)%filtered.length));
-document.getElementById('lightbox').addEventListener('click',e=>{ if(e.target===e.currentTarget) e.currentTarget.classList.remove('open'); });
-document.addEventListener('keydown',e=>{ if(e.key==='Escape') document.getElementById('lightbox').classList.remove('open'); if(e.key==='ArrowLeft') document.getElementById('lbPrev').click(); if(e.key==='ArrowRight') document.getElementById('lbNext').click(); });
-buildGallery('all');
+
+document.getElementById('lbPrev').addEventListener('click',()=>{
+  current = (current - 1 + filtered.length) % filtered.length;
+  openLightbox({ src: filtered[current].url, caption: filtered[current].cap, tag: filtered[current].tag, showNav: true });
+});
+document.getElementById('lbNext').addEventListener('click',()=>{
+  current = (current + 1) % filtered.length;
+  openLightbox({ src: filtered[current].url, caption: filtered[current].cap, tag: filtered[current].tag, showNav: true });
+});
+
+buildGallery('all', true);
 </script>
 </body></html>
